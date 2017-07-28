@@ -5,10 +5,10 @@ class Button(object):
 
     def __init__(self, pin=3):
         self.pin = 3
-        grovepi.pinMode(button,"INPUT")
+        grovepi.pinMode(self.pin,"INPUT")
 
     def get(self):
-        return grovepi.digitalRead(button)
+        return grovepi.digitalRead(self.pin)
 
 if __name__ == "__main__":
 
