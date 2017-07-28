@@ -15,7 +15,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 """
-Cloudmesh CMD5 setup.
+Cloudmesh PI setup.
 """
 import io
 
@@ -49,11 +49,11 @@ cloudmesh.common
 version = readfile("VERSION").strip()
 readme = readfile('README.rst')
 
-NAME = "cloudmesh.cmd5"
-DESCRIPTION = "A dynamic extensible CMD based command shell"
+NAME = "cloudmesh.pi"
+DESCRIPTION = "A Library for Raspberry PI IoT and Robots"
 AUTHOR = "Gregor von Laszewski"
 AUTHOR_EMAIL = "laszewski@gmail.com"
-URL = "https://github.com/cloudmesh/cmd5"
+URL = "https://github.com/cloudmesh/cloudmesh.pi"
 LONG_DESCRIPTION = readme
 
 setup(
@@ -66,11 +66,6 @@ setup(
     license="Apache 2.0",
     url=URL,
     packages=find_packages(),
-    # package_data={
-    #    "cloudmesh.data": [
-    #        "templates/cloudmesh/data.txt",
-    #    ]
-    # },
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
@@ -82,17 +77,10 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     install_requires=requiers,
-    # dependency_links = dependency_links,
-    # test_suite="runtests.runtests",
     tests_require=[
         "flake8",
         "coverage",
     ],
     zip_safe=False,
     namespace_packages=['cloudmesh'],
-    entry_points={
-        'console_scripts': [
-            'cms = cloudmesh.shell.shell:main',
-        ],
-    },
 )

@@ -1,6 +1,5 @@
 import time
 import grovepi
-from datetime import datetime
 import sys
 
 class Relay(object):
@@ -32,24 +31,40 @@ class Relay(object):
 
 class Dendrite(object):
 
+
     def __init__(self, port=4):
+        self.last = None
         self.port = port
         self.relay = Relay(port=self.port)
-        
-    def react(self, on=2.5, relax=30):
+
+    def react_and_wait(self, on=2.5, relax=30):
+        self.last = time.time()
         self.relay.on()
         time.sleep(on)
         self.relay.off()
         time.sleep(relax)
+
+    def react(self, on=2.5, relax=30):
+        if self.ready(relax):
+            self.last = time.time()
+            self.relay.on()
+            time.sleep(on)
+            self.relay.off()
+
+    def ready(self, delta):
+        t = time.time()
+        return t - self.reacted >= delta
 
 if __name__=="__main__":
 #    t0 = datetime.now()
 #    print(t0)
 #    sys.exit()
     d1 = Dendrite(port=4)
-    d2 = Dendrite)port=2)
-    d.react(on=2, relax=30)
-   # r1 = Relay()
+    d2 = Dendrite(port=2)
+    d1.react(on=2, relax=30)
+    d2.react(on=2, relax=30)
+
+# r1 = Relay()
    # r2 = Relay(port=2)
    # r1.on()
    # r2.on()
