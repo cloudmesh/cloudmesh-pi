@@ -14,6 +14,8 @@ class LightSensor(object):
         except IOError:
             print("Error")
 
-l = LightSensor()
-value = l.get()
-print(value)
+if __name__ == "__main__":
+
+    l = LightSensor()
+    value = l.get()
+    print(value)

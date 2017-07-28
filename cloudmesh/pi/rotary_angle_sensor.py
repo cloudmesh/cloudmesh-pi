@@ -62,8 +62,8 @@ class RotarySensor(object):
         except IOError:
             print ("Error")
 
-
-r = RotarySensor()
-time.sleep(1)
-value = r.get()
-print(value)
+if __name__ == "__main__":
+    r = RotarySensor()
+    time.sleep(1)
+    value = r.get()
+    print(value)

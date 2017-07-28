@@ -9,11 +9,17 @@ import time
 class Barometer(object):
 
     def __init__(self):
+        """
+        Barometer is attached to the I2C ports
+        """
         # Get I2C bus
         self.bus = smbus.SMBus(1)
 
     def get(self):
+        """
 
+        :return: temp_in_F, temnp_in_F, preasure
+        """
         
         # BMP280 address, 0x76(118)
         # Read data back from 0x88(136), 24 bytes
@@ -83,7 +89,7 @@ class Barometer(object):
         var2 = (((adc_t) / 131072.0 - (dig_T1) / 8192.0) * ((adc_t)/131072.0 - (dig_T1)/8192.0)) * (dig_T3)
         t_fine = (var1 + var2)
         self.cTemp = (var1 + var2) / 5120.0
-        self.fTemp = cTemp * 1.8 + 32
+        self.fTemp = self.cTemp * 1.8 + 32
 
         # Pressure offset calculations
         var1 = (t_fine / 2.0) - 64000.0
@@ -98,15 +104,15 @@ class Barometer(object):
         var2 = p * (dig_P8) / 32768.0
         self. pressure = (p + (var1 + var2 + (dig_P7)) / 16.0) / 100
 
-        return cTemp, fTemp, pressure
+        return self.cTemp, self.fTemp, self.pressure
 
     def __str__(self):
         self.get()
-        message = 
-         "Temperature in Celsius : %.2f C" %cTemp + \
-         "Temperature in Fahrenheit : %.2f F" %fTemp + \
-         "Pressure : %.2f hPa " %pressure
-         return message
+        message = \
+            "Temperature in Celsius : %.2f C" % self.cTemp + \
+            "Temperature in Fahrenheit : %.2f F" % self.fTemp + \
+            "Pressure : %.2f hPa " % self.pressure
+        return message
 
 if __name__ == "__main__": 
     barometer = Barometer()
