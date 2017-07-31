@@ -4,11 +4,11 @@ import grovepi
 class Button(object):
 
     def __init__(self, pin=3):
-        self.pin = 3
-        grovepi.pinMode(button,"INPUT")
+        self.pin = pin
+        grovepi.pinMode(pin,"INPUT")
 
     def get(self):
-        return grovepi.digitalRead(button)
+        return grovepi.digitalRead(pin)
 
 if __name__ == "__main__":
 

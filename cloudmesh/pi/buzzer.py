@@ -9,18 +9,18 @@ class Buzzer(object):
         grovepi.pinMode(self.pin, "OUTPUT")
 
     def on(self):
-        grovepi.digitalWrite(self.pin, 1)  # Send HIGH to switch on BUZZER
+        grovepi.digitalWrite(self.pin, 1)  # Send high to switch on buzzer
 
     def off(self):
-        grovepi.digitalWrite(self.pin, 0)  # Send LOW to switch off BUZZER
+        grovepi.digitalWrite(self.pin, 0)  # Send low to switch off buzzer
 
     def beep(self, n, t=0.2):
         for i in range(0, n):
             try:
-                # BUZZER on
+                # on
                 self.on()
                 time.sleep(t) # duration on 
-                # BUZZER off                
+                # off                
                 self.off()
                 time.sleep(t) #duration off
 

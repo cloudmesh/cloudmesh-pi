@@ -13,8 +13,6 @@ class Temperature(object):
 
         try:
             temp, hum = dht(self.dht_sensor_port, 0)
-            # Get the temperature and Humidity from the DHT sensor
-            
             t = str(temp)
             h = str(hum)
             return t, h

@@ -17,3 +17,19 @@ class Port(object):
     def pins (self, name):
         return self.names[name]
 
+    def port(pin):
+        for p in self.names:
+            if pin in self.names[p]:
+                print (p, self.sanmes[p])
+                
+    def view(self, kind=None):
+        pi3 = "https://32414320wji53mwwch1u68ce-wpengine.netdna-ssl.com/wp-content/uploads/2013/07/grovepi_pinout.png"
+        zero = "https://32414320wji53mwwch1u68ce-wpengine.netdna-ssl.com/wp-content/uploads/2013/07/GrovePi-Zero-Pinout-diagram.png"
+        if kind is None:
+            kind = pi3
+        elif kind in ['zero']:
+            kind = zero
+        else:
+            kine = pi3
+        os.system("epiphany-browser " + kind)
+        pass
