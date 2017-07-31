@@ -8,7 +8,7 @@ class Button(object):
         grovepi.pinMode(pin,"INPUT")
 
     def get(self):
-        return grovepi.digitalRead(pin)
+        return grovepi.digitalRead(self.pin)
 
 if __name__ == "__main__":
 
