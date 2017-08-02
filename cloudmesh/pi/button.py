@@ -4,6 +4,10 @@ import grovepi
 class Button(object):
 
     def __init__(self, pin=3):
+        """
+
+        :param pin:
+        """
         self.pin = pin
         grovepi.pinMode(pin,"INPUT")
 

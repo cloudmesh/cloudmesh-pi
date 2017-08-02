@@ -1,3 +1,12 @@
+"""Usage: led.py [-h] pin=PIN
+Demonstarte a blining LED on given PIN
+Arguments:
+  PIN     The PIN number  [default: 3].
+Options:
+  -h --help
+"""
+from docopt import docopt
+
 import time
 import grovepi
 import sys
@@ -32,6 +41,9 @@ class LED(object):
                 print ("Error")
 
 if __name__ == "__main__":
-    led = LED(pin=3)
+    arguments = docopt(__doc__)
+    pin = arguments['PIN']
+
+    led = LED(pin=pin)
     led.blink(5)
     

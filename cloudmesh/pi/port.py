@@ -17,7 +17,7 @@ class Port(object):
     def pins (self, name):
         return self.names[name]
 
-    def port(pin):
+    def port(self, pin):
         for p in self.names:
             if pin in self.names[p]:
                 print (p, self.sanmes[p])
@@ -33,3 +33,4 @@ class Port(object):
             kine = pi3
         os.system("epiphany-browser " + kind)
         pass
+
