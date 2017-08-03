@@ -33,7 +33,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
 
-import time,sys
+import time
+import sys
 import RPi.GPIO as GPIO
 import smbus
 
@@ -44,7 +45,7 @@ if rev == 2 or rev == 3:
 else:
     bus = smbus.SMBus(0)
 
-class motor_driver:
+class motor_driver (object):
 	
 	MotorSpeedSet             = 0x82
 	PWMFrequenceSet           = 0x84

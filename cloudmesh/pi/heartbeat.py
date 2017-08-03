@@ -40,19 +40,25 @@ import time,sys
 import RPi.GPIO as GPIO
 import smbus
 
-# use the bus that matches your raspi version
-rev = GPIO.RPI_REVISION
-if rev == 2 or rev == 3:
-    bus = smbus.SMBus(1)
-else:
-    bus = smbus.SMBus(0)
+class HeartbeatSensor(object):
 
-class grove_fingerclip_heart_sensor:
-	address = 0x50
+    def __init__(self):
+        """
+        Connect to an I2C port.
+        """
+        rev = GPIO.RPI_REVISION
+        if rev == 2 or rev == 3:
+            self.bus = smbus.SMBus(1)
+        else:
+            self.bus = smbus.SMBus(0)
+        self.address = 0x50
 
-	def pulse_read(self):
-		return bus.read_byte(0x50)
-		# return bus.read_i2c_block_data(self.address, 1,1)
+    def get(self):
+        """
+        Returns the heart rate of the wearer.
+        :return: Integer
+        """
+        return self.bus.read_byte(0x50)
 
 if __name__ == "__main__":		
 	

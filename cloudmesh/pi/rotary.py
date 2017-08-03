@@ -50,6 +50,10 @@ import grovepi
 class RotarySensor(object):
 
     def __init__(self, pin=0):
+        """
+        connect to analog port. A0 is default.
+        :param pin: Integer
+        """
         self.pin = pin
         grovepi.pinMode(self.pin, "INPUT")
         self.adc_ref = 5
@@ -57,10 +61,16 @@ class RotarySensor(object):
         self.full_angle = 300
 
     def get(self):
+        """
+        gets the value of the rotary sensor.
+        :return: Integer
+        """
         try:
-            return  grovepi.analogRead(self.pin)
+            return grovepi.analogRead(self.pin)
         except IOError:
             print ("Error")
+
+
 
 if __name__ == "__main__":
     r = RotarySensor()

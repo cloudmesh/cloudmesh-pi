@@ -17,14 +17,14 @@ def _get_app():
 
 if __name__ == "__main__":
     import sys
-    from wsgiref.simple_server import make_server
+    from wsgiref.simple_server import web_server
     
     app = _get_app()
     interface = sys.argv[1]
     port = 8080
     if len(sys.argv) == 3:
         port = sys.argv[2]
-    server = make_server(interface, int(port), app)
+    server = web_server(interface, int(port), app)
 
     print("Listening on http://{}:{}".format(interface, port))
     server.serve_forever()

@@ -1,7 +1,7 @@
 import time
 import grovepi
 
-class lineSensor: #here, we want to have the class to call for the sensor.
+class LineSensor(object): #here, we want to have the class to call for the sensor.
 
     def __init__(self, pin):
         grovepi.pinMode(pin, "INPUT")

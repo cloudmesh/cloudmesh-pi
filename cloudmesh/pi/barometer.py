@@ -10,17 +10,17 @@ class Barometer(object):
 
     def __init__(self):
         """
-        Barometer is attached to the I2C ports
+        Connect barometer to a I2C port
         """
         # Get I2C bus
         self.bus = smbus.SMBus(1)
 
     def get(self):
         """
-
-        :return: temp_in_F, temnp_in_F, preasure
+        gets the values of temperature in Celcius and Fahrenheit, and Pressure
+        :return: temp_in_C, temp_in_F, preasure
         """
-        
+
         # BMP280 address, 0x76(118)
         # Read data back from 0x88(136), 24 bytes
         b1 = self.bus.read_i2c_block_data(0x76, 0x88, 24)
@@ -86,7 +86,7 @@ class Barometer(object):
 
         # Temperature offset calculations
         var1 = ((adc_t) / 16384.0 - (dig_T1) / 1024.0) * (dig_T2)
-        var2 = (((adc_t) / 131072.0 - (dig_T1) / 8192.0) * ((adc_t)/131072.0 - (dig_T1)/8192.0)) * (dig_T3)
+        var2 = (((adc_t) / 131072.0 - (dig_T1) / 8192.0) * ((adc_t ) /131072.0 - (dig_T1 ) /8192.0)) * (dig_T3)
         t_fine = (var1 + var2)
         self.cTemp = (var1 + var2) / 5120.0
         self.fTemp = self.cTemp * 1.8 + 32

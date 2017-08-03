@@ -1,17 +1,19 @@
 import time
 import grovepi
 
-# Connect the Grove Water Sensor to digital port D2
-# SIG,NC,VCC,GND
 class WaterSensor(object):
 
     def __init__(self, pin=2):
         """
-        connect sensor to digital port
+        connect sensor to digital port. D2 is default.
         :param pin: Number
         """
         self.pin = pin
         grovepi.pinMode(self.pin, "INPUT")
 
     def get(self):
+        """
+        gets the value measured by water sensor.
+        :return: Integer
+        """
         return grovepi.digitalRead(self.pin)

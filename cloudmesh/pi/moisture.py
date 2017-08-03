@@ -21,3 +21,22 @@ class MoistureSensor(object):
 
     def get(self):
         return grovepi.analogRead(self.pin)
+
+
+
+
+
+class MoistureSensor(object):
+
+    def __init__(self, pin=0):
+        """
+        Connect sensor to analog port. A0 is default.
+        :param pin: Number
+        """
+        self.pin = pin
+
+    def get(self):
+        return grovepi.analogRead(self.pin)
+
+
+
