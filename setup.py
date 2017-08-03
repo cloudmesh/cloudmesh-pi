@@ -82,5 +82,5 @@ setup(
         "coverage",
     ],
     zip_safe=False,
-    namespace_packages=['cloudmesh'],
+    namespace_packages=['cloudmesh']
 )
