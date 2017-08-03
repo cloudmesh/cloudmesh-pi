@@ -102,6 +102,7 @@ class LCD(object):
             count += 1
             self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR,0x40,ord(c))
 
+
     def put(self, message):
         """
         sets the text on the display
@@ -121,6 +122,6 @@ if __name__=="__main__":
     lcd.setRGB(0,255,0)
     lcd.setText("Bye bye, this should wrap onto next line")
     time.sleep(0.5)
-    lcd.print("Hallo")
+    lcd.put("Hallo")
     
     
