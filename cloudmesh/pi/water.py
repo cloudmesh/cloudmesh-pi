@@ -17,3 +17,9 @@ class WaterSensor(object):
         :return: Integer
         """
         return grovepi.digitalRead(self.pin)
+
+if __name__ == "__main__":
+
+    ws = WaterSensor()
+    water = ws.get()
+    print(water)

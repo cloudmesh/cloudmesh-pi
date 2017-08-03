@@ -10,20 +10,6 @@ import grovepi
 
 # Connect the Grove Moisture Sensor to analog port A0
 # SIG,NC,VCC,GND
-class MoistureSensor(object):
-
-    def __init__(self, pin=0):
-        """
-        Connect sensor to analog
-        :param pin: Number
-        """
-        self.pin = pin
-
-    def get(self):
-        return grovepi.analogRead(self.pin)
-
-
-
 
 
 class MoistureSensor(object):
@@ -38,5 +24,8 @@ class MoistureSensor(object):
     def get(self):
         return grovepi.analogRead(self.pin)
 
+if __name__ == "__main__":
 
-
+    ms = MoistureSensor()
+    moisture = ms.get()
+    print(moisture)

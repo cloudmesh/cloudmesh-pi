@@ -61,11 +61,12 @@ class HeartbeatSensor(object):
         return self.bus.read_byte(0x50)
 
 if __name__ == "__main__":		
-	
-	pulse= grove_fingerclip_heart_sensor()
-	while True:
-		try:
-			pulse.pulse_read()
-		except IOError:
-			print("Error")
-		time.sleep(.5)
+
+    pulse = HeartbeatSensor()
+    while True:
+        try:
+            rate = pulse.get()
+            print(rate)
+        except IOError:
+            print("Error")
+        time.sleep(.5)
