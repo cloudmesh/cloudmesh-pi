@@ -102,7 +102,7 @@ class Barometer(object):
         p = (p - (var2 / 4096.0)) * 6250.0 / var1
         var1 = (dig_P9) * p * p / 2147483648.0
         var2 = p * (dig_P8) / 32768.0
-        self. pressure = (p + (var1 + var2 + (dig_P7)) / 16.0) / 100
+        self.pressure = (p + (var1 + var2 + (dig_P7)) / 16.0) / 100
 
         return self.cTemp, self.fTemp, self.pressure
 
