@@ -26,10 +26,15 @@ class TemperatureSensor(object):
         except (IOError, TypeError) as e:
             print "Error"
 
+    def __str__(self):
+        t, h= temperature.get()
+        return "Temperature: {}, Humidity: {}".format(t, h)
+
 if __name__ == "__main__":
 
     temperature = TemperatureSensor()
     while True:
         time.sleep(2)
         print(temperature.get())
+        print (temperature)
 
