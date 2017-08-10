@@ -33,15 +33,8 @@ def readfile(filename):
 
 
 requiers = """
-pygments
-tox
-detox
-coverage
-flake8
-eve
-psutil
 docopt
-cloudmesh.common
+falcon
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']

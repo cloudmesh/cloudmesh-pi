@@ -20,11 +20,9 @@ class TemperatureSensor(object):
         """
         try:
             temp, hum = grovepi.dht(self.dht_sensor_port, 0)
-            t = str(temp)
-            h = str(hum)
-            return t, h
+            return str(temp), str(hum)
         except (IOError, TypeError) as e:
-            print "Error"
+            print ("Error")
 
     def __str__(self):
         t, h= temperature.get()
