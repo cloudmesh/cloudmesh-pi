@@ -23,8 +23,8 @@ class Port(object):
                 print (p, self.sanmes[p])
                 
     def view(self, kind=None):
-        pi3 = "https://32414320wji53mwwch1u68ce-wpengine.netdna-ssl.com/wp-content/uploads/2013/07/grovepi_pinout.png"
-        zero = "https://32414320wji53mwwch1u68ce-wpengine.netdna-ssl.com/wp-content/uploads/2013/07/GrovePi-Zero-Pinout-diagram.png"
+        pi3 = "https://raw.githubusercontent.com/cloudmesh/classes/master/docs/source/lesson/iot/images/grovepi_pinout.png"
+        zero = "https://raw.githubusercontent.com/cloudmesh/classes/master/docs/source/lesson/iot/images/GrovePi-Zero-Pinout-diagram.png"
         if kind is None:
             kind = pi3
         elif kind in ['zero']:
@@ -34,3 +34,5 @@ class Port(object):
         os.system("epiphany-browser " + kind)
         pass
 
+p = Port()
+p.view()
