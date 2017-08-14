@@ -1,3 +1,5 @@
+import platform
+
 class Port(object):
 
     def __init__(self):
@@ -23,6 +25,12 @@ class Port(object):
                 print (p, self.sanmes[p])
                 
     def view(self, kind=None):
+        
+        if 'Darwin' in platform.system():
+            browser = 'open'
+        else:
+            browser = "epiphany-browser"
+
         pi3 = "https://raw.githubusercontent.com/cloudmesh/classes/master/docs/source/lesson/iot/images/grovepi_pinout.png"
         zero = "https://raw.githubusercontent.com/cloudmesh/classes/master/docs/source/lesson/iot/images/GrovePi-Zero-Pinout-diagram.png"
         if kind is None:
@@ -31,7 +39,7 @@ class Port(object):
             kind = zero
         else:
             kine = pi3
-        os.system("epiphany-browser " + kind)
+        os.system(browser + " " + kind)
         pass
 
 if __name__ == "__main__":
