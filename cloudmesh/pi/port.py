@@ -34,5 +34,6 @@ class Port(object):
         os.system("epiphany-browser " + kind)
         pass
 
-p = Port()
-p.view()
+if __name__ == "__main__":
+    p = Port()
+    p.view()
