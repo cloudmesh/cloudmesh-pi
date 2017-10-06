@@ -31,7 +31,7 @@ class LedBar:
 
 
 if __name__ == '__main__':
-    ledbar = LedBar(color = 1)
+    ledbar = LedBar()
     ledbar.setLevel(5)
     time.sleep(0.2)
     ledbar.setLED(9,1)

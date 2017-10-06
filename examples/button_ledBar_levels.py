@@ -5,19 +5,18 @@
 #then it starts again
 
 from cloudmesh.pi import Button
+from cloudmesh.pi import LedBar
 import time
-import grovepi
 
-ledbar = 3
-grovepi.pinMode(ledbar,"OUTPUT")
-grovepi.ledBar_init(ledbar,0)
 b = Button(pin=6)
+led_bar = LedBar()
 
 test = 0
+
 while True:
     test += b.get()
     print test
     value = test%11
     print value
-    grovepi.ledBar_setLevel(ledbar,value)
+    led_bar.setLevel(value)
     time.sleep(.2)

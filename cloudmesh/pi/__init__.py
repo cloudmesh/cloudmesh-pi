@@ -24,3 +24,4 @@ from .relay import Relay
 from .rotary import RotarySensor
 from .temperature import TemperatureSensor
 from .water import WaterSensor
+from .led_bar import LedBar
