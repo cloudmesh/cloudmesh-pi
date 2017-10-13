@@ -25,5 +25,6 @@ from .rotary import RotarySensor
 from .temperature import TemperatureSensor
 from .water import WaterSensor
 from .led_bar import LedBar
+from .grove_4_digit_display import Grove4DigitDisplay
 from .grove_air_quality_sensor import GroveAirQualitySensor
 from .grove_speaker import GroveSpeaker
