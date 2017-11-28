@@ -1,11 +1,15 @@
 ###
+# if you dont have picamera installed run sudo apt-get install python-picamera
+# and emable camera in raspberrypi configuration
+#
+#
 # this progam uses raspberry pi onboarc camera to capture an image and save it to a file
 #
 # wait for 5 seconds
 # capture the image
 # save the mage to image.jpg file
 #
-# for more options see
+# for more information see
 # https://www.raspberrypi.org/documentation/usage/camera/python/README.md
 ###
 
