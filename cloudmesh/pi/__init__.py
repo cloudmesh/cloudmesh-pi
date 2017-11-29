@@ -30,3 +30,4 @@ from .grove_air_quality_sensor import GroveAirQualitySensor
 from .grove_speaker import GroveSpeaker
 from .grove_relay import GroveRelay
 from .turbidity_sensor import TurbiditySensorAnalog
+from .camera import Camera
