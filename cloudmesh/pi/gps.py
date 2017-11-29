@@ -1,3 +1,18 @@
+#
+# to run:
+#     sudo python grove_gps.py
+#
+# to be tested:
+#
+# avoid sudo with
+#    sudo usermod -a -G dialout $USER
+#
+# may need to be added to
+# 
+# /etc/profile   ???
+# possibly make user adminstrator
+
+
 import serial, time
 import smbus
 import math
@@ -44,13 +59,13 @@ class GPS:
 g=GPS()
 f=open("gps_data.csv",'w')   #Open file to log the data
 f.write("name,latitude,longitude\n")   #Write the header to the top of the file
-ind=0
+ind=0git add 
 while True:
     try:
         x=g.read()  #Read from GPS
         [t,fix,sats,alt,lat,lat_ns,long,long_ew]=g.vals() #Get the individial values
-        print "Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew
-        s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"   
+        print ("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew
+        s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n")  
         f.write(s)   #Save to file
         time.sleep(2)
     except IndexError:
