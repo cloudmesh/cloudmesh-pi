@@ -20,9 +20,8 @@ filename = os.path.expanduser("~/data.log")
 
 def do_measure():
 
-    global now, temperature, turbidity, sun, chop, observer, gps
-
-    global now, temperature, counter
+    global now, temperature, turbidity, sun, chop, observer, gps, counter
+    
     counter = counter + 1
     now = datetime.datetime.now().strftime('%Y-%m-%d, %H:%M:%S')
 
@@ -49,7 +48,7 @@ def entry(label, value, x, y):
     print (label, value)
     
 
-app = App(title="My Application", height=300, width=400, layout="grid")
+app = App(title="Starboat Data", height=300, width=400, layout="grid")
 
 # picture = Picture(app, image="logo.gif", grid=[0,0])
 
