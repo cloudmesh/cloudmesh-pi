@@ -19,7 +19,7 @@ class TemperatureSensor(object):
         :return: Number, Number : Temperature, Humidity
         """
         try:
-            temp, hum = grovepi.dht(self.dht_sensor_port, 0)
+            temp, hum = dht(self.dht_sensor_port, 0)
             return str(temp), str(hum)
         except (IOError, TypeError) as e:
             print ("Error")
