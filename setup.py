@@ -35,6 +35,8 @@ def readfile(filename):
 requiers = """
 docopt
 falcon
+guizero
+grovepi
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
