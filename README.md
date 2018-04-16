@@ -1,11 +1,15 @@
-# Notes
+# Installing grovepi on Rasbian
 
-# Enable remote access
+* <https://downloads.raspberrypi.org/raspbian_latest>
+
+* SHA-256:d6d64a8bfad37de6bc7d975a335c69b8c6164a33b1ef0c79c888a9b83db5063f
+
+## Enable remote access
 
 enable vnc
 enable ssh
 
-# Install GrovePi
+## Install GrovePi
 
 Do not install the Grovepi shield yet
 
@@ -48,8 +52,7 @@ If everything goes right you will see:
     python grove_thumb_joystick.py
 
 
-# New:
-
+# New: This is temporary
 
     mkdir ~/github
     cd ~/github
