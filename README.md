@@ -6,8 +6,8 @@
 
 ## Enable remote access
 
-enable vnc
-enable ssh
+* enable vnc
+* enable ssh
 
 ## Install GrovePi
 
