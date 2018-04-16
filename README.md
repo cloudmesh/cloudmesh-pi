@@ -1,3 +1,22 @@
+# New:
+
+
+    mkdir ~/github
+    cd ~/github
+    git clone https://github.com/cloudmesh/cloudmesh.pi.git
+    cd cloudmesh.pi
+    make install-driver
+
+reboots
+
+    make install-grovepi
+
+reboot
+
+.... do what you like
+
+
+
 # Dev: Cloudmesh Raspberry PI Library 
 
     mkdir ~/github
@@ -35,38 +54,38 @@ Do not install the Grovepi shield yet
 
    sudo apt-get update
    sudo apt-get install emacs -y
-	cd /home/pi/Desktop
-	sudo git clone https://github.com/DexterInd/GrovePi
-	cd /home/pi/Desktop/GrovePi/Script
-	sudo chmod +x install.sh
-	sudo ./install.sh
-	sudo reboot
+   cd /home/pi/Desktop
+   sudo git clone https://github.com/DexterInd/GrovePi
+   cd /home/pi/Desktop/GrovePi/Script
+   sudo chmod +x install.sh
+   sudo ./install.sh
+   sudo reboot
 
 Now we install grovepi
 
-	sudo pip install grovepi
-	sudo shutdown -h now
-	
-	
+    sudo pip install grovepi
+    sudo shutdown -h now
+    
+    
 put the grove shield on and power on
 
 check 
 
-	sudo i2cdetect -y 1
-	
+    sudo i2cdetect -y 1
+    
 If everything goes right you will see:
-	     
+         
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-	00:          -- 04 -- -- -- -- -- -- -- -- -- -- -- 
-	10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-	30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-	70: -- -- -- -- -- -- -- --        
-	
+    00:          -- 04 -- -- -- -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    70: -- -- -- -- -- -- -- --        
+    
 # Test a joystick
 
-	cd ~/Desktop/GrovePi/Software/Python/   
-	python grove_thumb_joystick.py
+    cd ~/Desktop/GrovePi/Software/Python/   
+    python grove_thumb_joystick.py

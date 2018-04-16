@@ -41,9 +41,40 @@ clean:
 	rm -rf .tox
 	rm -f *.whl
 
+
 ######################################################################
 # PYPI
 ######################################################################
+
+todo:
+ 	sudo apt-get update
+	sudo apt-get install emacs -y
+	cd /home/pi/Desktop
+	sudo git clone https://github.com/DexterInd/GrovePi
+	cd /home/pi/Desktop/GrovePi/Script
+	sudo chmod +x install.sh
+	sudo ./install.sh
+	sudo reboot
+
+
+install-driver:
+	sudo apt-get update
+	sudo apt-get install emacs -y
+	cd /home/pi/Desktop
+	sudo git clone https://github.com/DexterInd/GrovePi
+	cd /home/pi/Desktop/GrovePi/Script
+	sudo chmod +x install.sh
+	sudo ./install.sh
+	sudo reboot
+
+install-grovepi:
+	sudo pip install grovepi
+	sudo reboot -h now
+
+######################################################################
+# PYPI
+######################################################################
+
 
 dist: clean
 	@echo "######################################"
