@@ -40,7 +40,7 @@ falcon
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
 
 version = readfile("VERSION").strip()
-readme = readfile('README.rst')
+readme = readfile('README.md')
 
 NAME = "cloudmesh.pi"
 DESCRIPTION = "A Library for Raspberry PI IoT and Robots"
