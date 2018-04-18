@@ -1,18 +1,26 @@
-#import libraries
+######################################################################
+# import libraries
+######################################################################
 from cloudmesh.pi import LCD
 from cloudmesh.pi import Joystick
 import Adafruit_PCA9685
 import time
 
-#lcd set up
+######################################################################
+# lcd set up
+######################################################################
 lcd = LCD()
 lcd.setRGB(255,255,255)
 
+######################################################################
 #joystick x + y ranges
 #x = -242 to 268
 #y = -249 to 241
+######################################################################
 
-#set up motor configuration
+######################################################################
+# set up motor configuration
+######################################################################
 left = 0
 right = 4
 middle = 8
@@ -49,13 +57,19 @@ lcd.setText("Plug motor power in now (1 sec).")
 time.sleep(1)
 lcd.setText("Power should be connected now.")
 
-#start up drone motors
+######################################################################
+# start up drone motors
+######################################################################
+
 pwm.set_all_pwm(0, 150)
 time.sleep(1)
 pwm.set_all_pwm(0, 600)
 time.sleep(1)
 
-#loop reading joystick and setting values
+######################################################################
+# loop reading joystick and setting values
+######################################################################
+
 while True:
 	value = joy.get()
 	x = value[0]
