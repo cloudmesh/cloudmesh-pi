@@ -10,7 +10,10 @@ x_max = 0
 y_min = 0
 y_max = 0
 
-
+lcd.setText("move x joystick to the left")
+lcd.setText("move x joystick to the right")
+lcd.setText("move y joystick to the up")
+lcd.setText("move y joystick to the down")
 
 
 
