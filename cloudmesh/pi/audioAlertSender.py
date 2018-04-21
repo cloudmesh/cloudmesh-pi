@@ -7,7 +7,7 @@ import paho.mqtt.publish as publish
 
 def publish_msg(msg=None):
     MQTT_SERVER = "10.0.1.13"
-    MQTT_PATH = "audioalert"
+    MQTT_PATH = "cloudmesh/audio"
 
     if not msg:
         msg = "Tell me what to say"

@@ -109,6 +109,7 @@ while True:
         x = x - 519
     stepx = convert(x, -241, 266)
     stepy = convert(y, -247, 240)
+    stoptime = time.time()
     print("The corrected stepx,stepy,click values are ", stepx, stepy, click)
     if click != lastclick and click == 0:
         joytoggle = not joytoggle

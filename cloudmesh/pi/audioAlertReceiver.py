@@ -2,7 +2,7 @@ import os
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "localhost"
-MQTT_PATH = "audioalert"
+MQTT_PATH = "cloudmesh/audio"
 
 
 # The callback for when the client receives a CONNACK response from the server.
