@@ -150,7 +150,7 @@ class Joystick(object):
             y = grovepi.analogRead(self.yPin)
         except IOError:
             print("IOError")
-        return (x, y)
+        return x, y
 
     # x,y values normalized in the range of [-100, 100]
     def get_scaled(self):
@@ -165,7 +165,7 @@ class Joystick(object):
         else:
             if y < 0:
                 y = y * 100 / (self.y0 - self.min_y)
-        return (x, y, z)
+        return x, y, z
 
     def get(self):
         """

@@ -54,7 +54,7 @@ class LED(object):
             except KeyboardInterrupt:  # Turn LED off before stopping
                 grovepi.digitalWrite(self.pin, 0)
                 sys.exit()
-                break
+                # break
             except IOError:  # Print "Error" if communication error encountered
                 print("Error")
 

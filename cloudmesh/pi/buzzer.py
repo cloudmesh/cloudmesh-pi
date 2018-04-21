@@ -45,7 +45,7 @@ class Buzzer(object):
             except KeyboardInterrupt:  # Turn BUZZER off before stopping
                 grovepi.digitalWrite(self.pin, 0)
                 sys.exit()
-                break
+                # break
             except IOError:  # Print "Error" if communication error encountered
                 print("Error")
 

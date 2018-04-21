@@ -16,7 +16,7 @@ class GroveSpeaker:
         grovepi.pinMode(self.speaker, "OUTPUT")
         grovepi.digitalWrite(self.speaker, self.low)
 
-    def setFreq(self, freq=0, seconds=0):
+    def setFreq(self, freq=0, seconds=0.0):
         """
         Generate a wave with the frequency freq (Hz) for specified number of seconds approximately
         by default 0 Hz for 0 seconds

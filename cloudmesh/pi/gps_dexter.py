@@ -26,7 +26,7 @@ patterns = ["$GPGGA",
             ]
 
 
-class GROVEGPS():
+class GROVEGPS(object):
     def __init__(self, port='/dev/ttyAMA0', baud=9600, timeout=0):
         self.ser = serial.Serial(port, baud, timeout=timeout)
         self.ser.flush()
@@ -43,13 +43,13 @@ class GROVEGPS():
     # self.get_date()  # attempt to gete date from GPS.
 
     def clean_data(self):
-        '''
+        """
         clean_data:
         ensures that all relevant GPS data is set to either empty string
         or -1.0, or -1, depending on appropriate type
         This occurs right after initialisation or
         after 50 attemps to reach GPS
-        '''
+        """
         self.timestamp = ""
         self.lat = -1.0  # degrees minutes and decimals of minute
         self.NS = ""
@@ -64,11 +64,11 @@ class GROVEGPS():
         self.fancylat = ""  #
 
     def get_date(self):
-        '''
+        """
         attempt to get date from GPS data. So far no luck. GPS does
         not seem to send date sentence at all
         function is unfinished
-        '''
+        """
         valid = False
         for i in range(50):
             time.sleep(0.5)
@@ -79,11 +79,11 @@ class GROVEGPS():
                 print(self.raw_line)
 
     def read(self):
-        '''
+        """
         Attempts 50 times at most to get valid data from GPS
         Returns as soon as valid data is found
         If valid data is not found, then clean up data in GPS instance
-        '''
+        """
         valid = False
         for i in range(50):
             time.sleep(0.5)
@@ -99,12 +99,12 @@ class GROVEGPS():
             return []
 
     def validate(self, in_line):
-        '''
+        """
         Runs regex validation on a GPGAA sentence.
         Returns False if the sentence is mangled
         Return True if everything is all right and sets internal
         class members.
-        '''
+        """
         if in_line == "":
             return False
         if in_line[:6] != "$GPGGA":

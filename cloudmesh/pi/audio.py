@@ -12,7 +12,7 @@ class Publisher(object):
         self.MQTT_SERVER = ip
         self.MQTT_PATH = path
 
-    def send(sef, msg=None):
+    def send(self, msg=None):
         if not msg:
             msg = "Tell me what to say"
         publish.single(self.MQTT_PATH,
