@@ -34,7 +34,7 @@ import grovepi
 # Calculate rotation in degrees (0 to 300)
 #        degrees = round((voltage * full_angle) / grove_vcc, 2)
 
-# Calculate LED brightess (0 to 255) from degrees (0 to 300)
+# Calculate LED brightness (0 to 255) from degrees (0 to 300)
 #        brightness = int(degrees / full_angle * 255)
 
 #        # Give PWM output to LED

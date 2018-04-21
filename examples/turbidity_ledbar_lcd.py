@@ -1,13 +1,13 @@
 ######################################################################
 # Read the analog value on turbidity sensor
 # Display the reading on lcd screen
-# Display a level on the ledbar
+# Display a level on the led bar
 #
 # High reading means less turbidity and hence is good
 #
 # Connect lcd to i2c port
 # Connect turbidity sensor to analog port A0
-# Connect ledbar to digital port D3
+# Connect led bar to digital port D3
 #
 ######################################################################
 

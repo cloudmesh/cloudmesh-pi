@@ -25,7 +25,7 @@ class TurbiditySensorDigital:
         """
 		Initialise the sensor
 		read digital mode value of the turbidity sensor
-		connect the urbidity sensor to port D4 of the grovepi
+		connect the turbidity sensor to port D4 of the grovepi
 		"""
         self.turbidity_sensor = pin
         grovepi.pinMode(self.turbidity_sensor, "INPUT")
@@ -39,8 +39,8 @@ class TurbiditySensorDigital:
 
 
 if __name__ == "__main__":
-    turb = TurbiditySensorAnalog(pin=0)
+    turbidity = TurbiditySensorAnalog(pin=0)
     while True:
-        value = turb.getValue()
+        value = turbidity.getValue()
         print(" Turbidity value is ", value)
         time.sleep(1)

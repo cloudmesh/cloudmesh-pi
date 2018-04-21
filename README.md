@@ -77,8 +77,8 @@ reboot
     git clone https://github.com/cloudmesh/cloudmesh.pi.git
     pip install .
 
-This code contains some Grove Sensor libraries for developping IoT
-and Robot projects tith Raspberry Pi and GRovePI+.
+This code contains some Grove Sensor libraries for developing IoT
+and Robot projects with Raspberry Pi and GRovePI+.
 
 
 * https://pinout.xyz/

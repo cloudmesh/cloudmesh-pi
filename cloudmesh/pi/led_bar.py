@@ -4,13 +4,13 @@ import grovepi
 
 class LedBar(object):
     def __init__(self, pin=3, color=0):
-    """
-	color = 0 starts counting led 1 from  the Red LED end
-	color = 0 starts counting led 1 from the green LED end
-	"""
+        """
+	    color = 0 starts counting led 1 from  the Red LED end
+	    color = 0 starts counting led 1 from the green LED end
+	    """
 
-    self.ledbar = pin
-    grovepi.ledBar_init(self.ledbar, color)
+        self.ledbar = pin
+        grovepi.ledBar_init(self.ledbar, color)
 
 
 def setLevel(self, level=0):

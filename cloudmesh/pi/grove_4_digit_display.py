@@ -48,7 +48,7 @@ class Grove4DigitDisplay(object):
 
     def monitorAnalog(self, pin=0, seconds=0):
         """
-		monitor and display the value of an analog pin for some nuber of seconds
+		monitor and display the value of an analog pin for some number of seconds
 		by default monitor analog pin 0 for 0 seconds
 		"""
         grovepi.fourDigit_monitor(self.display, pin, seconds)

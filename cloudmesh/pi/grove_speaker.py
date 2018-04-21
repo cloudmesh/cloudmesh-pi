@@ -50,7 +50,7 @@ class GroveSpeaker:
 
     def speakerOff(self):
         """
-		to avoid some noise voltage to speaker leadning to some noise in the speaker set voltage to -1
+		to avoid some noise voltage to speaker leading to some noise in the speaker set voltage to -1
 		"""
         grovepi.digitalWrite(self.speaker, -1)
 

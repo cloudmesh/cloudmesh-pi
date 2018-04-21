@@ -18,7 +18,7 @@ class Barometer(object):
     def get(self):
         """
         gets the values of temperature in Celcius and Fahrenheit, and Pressure
-        :return: temp_in_C, temp_in_F, preasure
+        :return: temp_in_C, temp_in_F, pressure
         """
 
         # BMP280 address, 0x76(118)

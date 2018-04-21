@@ -17,7 +17,7 @@ from .light import LightSensor
 from .line import LineSensor
 from .moisture import MoistureSensor
 # from .motor import MotorDriver
-# from .motor_driver import otor_driver
+# from .motor_driver import motor_driver
 # from .motor_server import Motor_server
 from .port import Port
 from .relay import Relay

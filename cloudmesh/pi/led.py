@@ -1,5 +1,5 @@
 """Usage: led.py [-h] pin=PIN
-Demonstarte a blining LED on given PIN
+Demonstrate a blinking LED on given PIN
 Arguments:
   PIN     The PIN number  [default: 3].
 Options:

@@ -16,7 +16,7 @@ import grovepi
 class DistanceSensor(object):
     def __init__(self, port=4):
         """
-        connect to digital port. D4 is defualt.
+        connect to digital port. D4 is default.
         :param port: Integer
         """
         # Connect the Grove Ultrasonic Ranger to digital port D4

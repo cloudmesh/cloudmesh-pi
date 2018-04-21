@@ -21,7 +21,7 @@ class GroveRelay:
 
     def off(self):
         """
-		tunrn off the relay preventing current from flowing to the connected device
+		turn off the relay preventing current from flowing to the connected device
 		"""
         grovepi.digitalWrite(self.relay, 0)
         return
