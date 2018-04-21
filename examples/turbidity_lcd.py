@@ -1,11 +1,18 @@
-#program reads analog turbidity sensor value
-#displays it on the lcd screen
+######################################################################
+# This program reads analog turbidity sensor values and
+# displays it on the lcd screen
+#
+# Connect the turbidity sensor to port A0 of the grovepi
+# Connect LCD to an I2C port of grovepi
+#
+# Question: can we use any I2C and any analog port.
+# Is there a combination the would not work
+#
+######################################################################
 
 from cloudmesh.pi import LCD
 from cloudmesh.pi import TurbiditySensorAnalog
 import time
-#connect turbidity sensor to port A0 of grovepi
-# connect LCD to I2C port of grovepi
 
 turb = TurbiditySensorAnalog(pin=0)
 screen = LCD()
