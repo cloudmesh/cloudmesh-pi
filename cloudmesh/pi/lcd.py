@@ -111,6 +111,16 @@ class LCD(object):
         """
         self.setText(message)
 
+    def countdown(self, message, seconds):
+        """
+        sets the text on the display and updates it every second
+        :param message: String
+        :return: None
+        """
+        for t in range(seconds, 0, -1):
+            msg = message + "({seconds} sec).".format(seconds)
+            self.setText(message)
+        
 
 if __name__=="__main__":
     lcd = LCD()
@@ -123,5 +133,7 @@ if __name__=="__main__":
     lcd.setText("Bye bye, this should wrap onto next line")
     time.sleep(0.5)
     lcd.put("Hallo")
+
+    lcd.countdown("Program ends in", 5) 
     
     

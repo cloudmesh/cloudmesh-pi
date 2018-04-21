@@ -16,7 +16,6 @@ lcd.setText("move y joystick to the up")
 lcd.setText("move y joystick to the down")
 
 
-
 def convert100(value , minv,maxv):
 	delta = maxv-minv
 	newvalue = (value - minv)*(100.0/delta)
