@@ -1,17 +1,16 @@
-###
-# if you dont have picamera installed run sudo apt-get install python-picamera
-# and emable camera in raspberrypi configuration
+######################################################################
+# If you dont have picamera installed run
+# 
+#     sudo apt-get install python-picamera
 #
+# You also need to emable camera in raspberrypi configuration
 #
-# this progam uses raspberry pi onboarc camera to capture an image and save it to a file
+# This progam uses raspberry pi onboard camera to capture an image and
+# after a 5 second countdown timer. 
 #
-# wait for 5 seconds
-# capture the image
-# save the mage to image.jpg file
-#
-# for more information see
+# For more information see
 # https://www.raspberrypi.org/documentation/usage/camera/python/README.md
-###
+######################################################################
 
 import picamera
 import time
@@ -19,7 +18,7 @@ import time
 camera = picamera.PiCamera()
 
 count = 5
-while count >0:
+while count > 0:
 	print "capturing image in : ", count
 	count -= 1
 	time.sleep(1)
