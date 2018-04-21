@@ -3,31 +3,29 @@
 import time
 import grovepi
 
+
 # Connect the Grove Thumb Joystick to analog port A0
 
 
 class Joystick(object):
-    
     def __init__(self):
         self.xPin = 0
         self.yPin = 1
-        grovepi.pinMode(self.xPin,"INPUT")
-        grovepi.pinMode(self.yPin,"INPUT")
+        grovepi.pinMode(self.xPin, "INPUT")
+        grovepi.pinMode(self.yPin, "INPUT")
         self.max_y = 756
         self.min_y = 267
         self.max_x = 755
         self.min_x = 269
         self.typical_x = 498
         self.typical_y = 514
-        
+
     def get(self):
         try:
             # Get X/Y coordinates
             x = grovepi.analogRead(self.xPin)
             y = grovepi.analogRead(self.yPin)
 
-            
-            
             # Was a click detected on the X axis?
             click = 1 if x >= 1020 else 0
 
@@ -40,19 +38,17 @@ class Joystick(object):
                 y = 0
             return x, y, click
 
-
         except IOError:
-            print ("Error")
+            print("Error")
             x = self.typical_x
             y = self.typical_y
-
 
     def get_absolute(self):
         try:
             # Get X/Y coordinates
             x = grovepi.analogRead(self.xPin)
             y = grovepi.analogRead(self.yPin)
-           
+
             # Was a click detected on the X axis?
             click = 1 if x >= 1020 else 0
 
@@ -60,10 +56,9 @@ class Joystick(object):
             return x - self.min_x, y - self.min_y, click
 
         except IOError:
-            print ("Error")
+            print("Error")
             x = self.typical_x - self.min_x
             y = self.typical_y - self.min_y
-
 
 
 # My Joystick
@@ -76,6 +71,6 @@ class Joystick(object):
 # max x = 755
 # min x = 269
 
-stick = Joystick() 
+stick = Joystick()
 print(stick.get_absolute())
 print(stick.get())

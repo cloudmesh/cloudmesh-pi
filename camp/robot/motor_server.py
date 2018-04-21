@@ -1,24 +1,27 @@
 import falcon
 import motor
 
+
 class MainHandler(object):
     def on_get(self, req, resp):
         driver = motor.MotorDriver()
         driver.setLeftSpeed(int(req.params["LEFT"]))
         driver.setRightSpeed(int(req.params["RIGHT"]))
 
+
 def _get_app():
     main = MainHandler()
     app = falcon.API()
-    
+
     app.add_route('/', main)
 
     return app
 
+
 if __name__ == "__main__":
     import sys
     from wsgiref.simple_server import make_server
-    
+
     app = _get_app()
     interface = sys.argv[1]
     port = 8080

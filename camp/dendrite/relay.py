@@ -2,11 +2,11 @@ import time
 import grovepi
 import sys
 
-class Relay(object):
 
+class Relay(object):
     def __init__(self, port=4):
         self.port = port
-        grovepi.pinMode(self.port,"OUTPUT")
+        grovepi.pinMode(self.port, "OUTPUT")
 
     def on(self):
         try:
@@ -29,9 +29,8 @@ class Relay(object):
         except IOError:
             print('Error')
 
+
 class Dendrite(object):
-
-
     def __init__(self, port=4):
         self.last = None
         self.port = port
@@ -55,21 +54,22 @@ class Dendrite(object):
         t = time.time()
         return t - self.reacted >= delta
 
-if __name__=="__main__":
-#    t0 = datetime.now()
-#    print(t0)
-#    sys.exit()
+
+if __name__ == "__main__":
+    #    t0 = datetime.now()
+    #    print(t0)
+    #    sys.exit()
     d1 = Dendrite(port=4)
     d2 = Dendrite(port=2)
     d1.react(on=2, relax=30)
     d2.react(on=2, relax=30)
 
-# r1 = Relay()
-   # r2 = Relay(port=2)
-   # r1.on()
-   # r2.on()
-   # time.sleep(2.5)
- #   r1.off()
- #   r2.off()
- #   time.sleep(30)
+    # r1 = Relay()
+    # r2 = Relay(port=2)
+    # r1.on()
+    # r2.on()
+    # time.sleep(2.5)
+    #   r1.off()
+    #   r2.off()
+    #   time.sleep(30)
     print('done')

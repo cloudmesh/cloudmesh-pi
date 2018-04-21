@@ -1,10 +1,13 @@
 import time
 from grovepi import *
 
-print(
-    "This example will blink a Grove LED connected to the GrovePi+ on the port labeled D3.\nIf you're having trouble seeing the LED blink, be sure to check the LED connection and the port number.\nYou may also try reversing the direction of the LED on the sensor.")
+print("This example will blink a Grove LED connected to the GrovePi+ " +
+      "on the port labeled D3.\nIf you're having trouble seeing the " +
+      "LED blink, be sure to check the LED connection and the port " +
+      "number.\nYou may also try reversing the direction of the LED " +
+      "on the sensor.")
 print(" ")
-print("Connect the LED to the port labele D3!")
+print("Connect the LED to the port label D3!")
 
 
 class LED(object):

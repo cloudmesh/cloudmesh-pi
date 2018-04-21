@@ -1,9 +1,10 @@
 import grove_i2c_motor_driver as grove
 
+
 class MotorDriver(object):
     def __init__(self):
         self.driver = grove.motor_driver()
-        self.left  = 0
+        self.left = 0
         self.right = 0
         self.left_forward = True
         self.right_forward = True
@@ -16,7 +17,7 @@ class MotorDriver(object):
         else:
             self.right_forward = True
             self.driver.MotorSpeedSetAB(speed, self.left)
-        
+
         self.right = speed
         direction = 0
         if self.left_forward:
@@ -28,7 +29,7 @@ class MotorDriver(object):
         else:
             direction |= 1
         self.driver.MotorDirectionSet(direction)
-        
+
     def setLeftSpeed(self, speed):
         if speed < 0:
             speed = 0 - speed
@@ -37,7 +38,7 @@ class MotorDriver(object):
         else:
             self.left_forward = True
             self.driver.MotorSpeedSetAB(self.right, speed)
-        
+
         self.left = speed
         direction = 0
         if self.left_forward:
