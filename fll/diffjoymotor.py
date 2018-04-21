@@ -1,6 +1,7 @@
 ######################################################################
 # import libraries
 ######################################################################
+from __future__ import print_function
 from cloudmesh.pi import LCD
 from cloudmesh.pi import Joystick
 import Adafruit_PCA9685
@@ -76,7 +77,7 @@ while True:
 	y = value[1]
 	lastclick = click
 	click = value[2]
-	if(click == 1):
+	if click == 1:
 		x = x -519
 	print "The x,y,click values are ", x,y,click
 	if(click != lastclick and click == 0):

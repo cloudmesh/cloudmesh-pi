@@ -1,4 +1,5 @@
 #import libraries
+from __future__ import print_function
 from cloudmesh.pi import LCD
 from cloudmesh.pi import Joystick
 import Adafruit_PCA9685
@@ -11,7 +12,7 @@ def convert100(value , minv,maxv):
 	return newvalue
 
 def step100(value):
-	if(value<=10):
+	if value<=10:
 		return 0
 	if(value<20):
 		return 20
