@@ -6,6 +6,7 @@
 # it is full, then it starts again
 ######################################################################
 
+from __future__ import print_function
 from cloudmesh.pi import Button
 from cloudmesh.pi import LedBar
 import time
@@ -17,8 +18,8 @@ test = 0
 
 while True:
     test += b.get()
-    print test
+    print(test)
     value = test % 11
-    print value
+    print(value)
     led_bar.setLevel(value)
     time.sleep(0.2)

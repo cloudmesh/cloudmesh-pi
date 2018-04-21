@@ -1,9 +1,8 @@
 from cloudmesh.pi import DistanceSensor
 
 if __name__ == "__main__":
-      
-    distance = DistanceSensor()
 
+    distance = DistanceSensor()
 
     while True:
         try:
@@ -11,6 +10,6 @@ if __name__ == "__main__":
             print(distance.get())
 
         except TypeError:
-            print ("Error")
+            print("Error")
         except IOError:
-            print ("Error")
+            print("Error")

@@ -17,14 +17,13 @@ from cloudmesh.pi import TurbiditySensorAnalog
 import time
 
 lcd = LCD()
-lcd.setRGB(0,128,0)
+lcd.setRGB(0, 128, 0)
 ledbar = LedBar(pin=3)
-turb = TurbiditySensorAnalog(pin=0)
+turbidity = TurbiditySensorAnalog(pin=0)
 
 while True:
-	value = turb.getValue()
-	level = value/100
-	ledbar.setLevel(level)
-	lcd.setText("Turbidity : " + str(value) )
-	time.sleep(1)
-
+    value = turbidity.getValue()
+    level = value / 100
+    ledbar.setLevel(level)
+    lcd.setText("Turbidity : " + str(value))
+    time.sleep(1)

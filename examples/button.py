@@ -10,6 +10,4 @@ if __name__ == "__main__":
             print(button.get())
             time.sleep(.5)
         except IOError:
-            print ("Error")
-
-
+            print("Error")

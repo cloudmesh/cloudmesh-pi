@@ -42,7 +42,7 @@ Example:
 
 * Now, the output of the program wil be stored in log.txt file
 * Save the file and exit the editor.
-* When the reabpberry pi reboots, the program will run automatically.
+* When the rasbpberry pi reboots, the program will run automatically.
 
 These steps can be found at
 

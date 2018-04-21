@@ -14,11 +14,11 @@ from cloudmesh.pi import LCD
 from cloudmesh.pi import TurbiditySensorAnalog
 import time
 
-turb = TurbiditySensorAnalog(pin=0)
+turbidity = TurbiditySensorAnalog(pin=0)
 screen = LCD()
-screen.setRGB(0,128,0)
+screen.setRGB(0, 128, 0)
 
 while True:
-	value = turb.getValue()
-	screen.setText("Turbidity : " + str(value) )
-	time.sleep(1)
+    value = turbidity.getValue()
+    screen.setText("Turbidity : " + str(value))
+    time.sleep(1)
