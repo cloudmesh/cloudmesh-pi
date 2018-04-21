@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 #
-# GrovePi Library for using the Grove - Finger-clip Heart Rate Sensor(http://www.seeedstudio.com/depot/Grove-Fingerclip-Heart-Rate-Sensor-with-shell-p-2420.html)
+# GrovePi Library for using the Grove - Finger-clip Heart Rate Sensor
+# (http://www.seeedstudio.com/depot/Grove-Fingerclip-Heart-Rate-Sensor-with-shell-p-2420.html)
 #
-# The GrovePi connects the Raspberry Pi and Grove sensors.  You can learn more about GrovePi here:  http://www.dexterindustries.com/GrovePi
+# The GrovePi connects the Raspberry Pi and Grove sensors.  You can learn more
+# about GrovePi here:  http://www.dexterindustries.com/GrovePi
 #
-# Have a question about this library?  Ask on the forums here:  http://forum.dexterindustries.com/c/grovepi
+# Have a question about this library?  Ask on the forums here:
+# http://forum.dexterindustries.com/c/grovepi
 #
 '''
 ## License
 
 The MIT License (MIT)
 
-GrovePi for the Raspberry Pi: an open source platform for connecting Grove Sensors to the Raspberry Pi.
+GrovePi for the Raspberry Pi: an open source platform for connecting
+Grove Sensors to the Raspberry Pi.
 Copyright (C) 2017  Dexter Industries
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,16 +36,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
-#################################################################################################################################################
+#############################################################################
+#
 # NOTE:
-# The software for this sensor is still in development and might make your GrovePi unuable as long as this sensor is connected with the GrovePi
-#################################################################################################################################################
-import time,sys
+# The software for this sensor is still in development and might make your
+# GrovePi unusable as long as this sensor is connected with the GrovePi
+#
+#############################################################################
+import time
+import sys
 import RPi.GPIO as GPIO
 import smbus
 
-class HeartbeatSensor(object):
 
+class HeartbeatSensor(object):
     def __init__(self):
         """
         Connect to an I2C port.
@@ -60,7 +68,8 @@ class HeartbeatSensor(object):
         """
         return self.bus.read_byte(0x50)
 
-if __name__ == "__main__":		
+
+if __name__ == "__main__":
 
     pulse = HeartbeatSensor()
     while True:

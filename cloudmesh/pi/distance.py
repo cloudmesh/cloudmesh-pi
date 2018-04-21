@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
-#21cm = 26
-#31cm = 36
-#41cm = 49
-#51cm = 62
-#61cm = 75
-#71cm = 86
-#81cm = 99
+# 21cm = 26
+# 31cm = 36
+# 41cm = 49
+# 51cm = 62
+# 61cm = 75
+# 71cm = 86
+# 81cm = 99
 
-#If value is smaller than 7 cm, take value. 
+# If value is smaller than 7 cm, take value.
 
 import grovepi
 
-class DistanceSensor(object):
 
+class DistanceSensor(object):
     def __init__(self, port=4):
         """
         connect to digital port. D4 is defualt.
@@ -30,19 +30,19 @@ class DistanceSensor(object):
         """
         return grovepi.ultrasonicRead(self.ultrasonic_ranger)
 
-    def calibrate(self, tuple):
+    def calibrate(self, values):
         """
          (cm, value)
 
-        :param tuple: [(21, 26), ....]
+        :param values: [(21, 26), ....]
         :return:
         """
         pass
 
-if __name__ == "__main__":
-      
-    distance = DistanceSensor()
 
+if __name__ == "__main__":
+
+    distance = DistanceSensor()
 
     while True:
         try:
@@ -50,6 +50,6 @@ if __name__ == "__main__":
             print(distance.get())
 
         except TypeError:
-            print ("Error")
+            print("Error")
         except IOError:
-            print ("Error")
+            print("Error")

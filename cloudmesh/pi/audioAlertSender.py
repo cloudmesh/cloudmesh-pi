@@ -4,7 +4,8 @@ import time
 import datetime
 import paho.mqtt.publish as publish
 
-def publish_msg(msg = None):
+
+def publish_msg(msg=None):
     MQTT_SERVER = "10.0.1.13"
     MQTT_PATH = "audioalert"
 
@@ -12,8 +13,10 @@ def publish_msg(msg = None):
         msg = "Tell me what to say"
     publish.single(MQTT_PATH, msg, hostname=MQTT_SERVER)
 
-def main(msg = None):
+
+def main(msg=None):
     publish_msg(msg)
+
 
 if __name__ == "__main__":
     msg = None

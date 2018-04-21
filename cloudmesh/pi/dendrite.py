@@ -21,7 +21,6 @@ class Dendrite(object):
         self.relay.off()
         time.sleep(relax)
 
-
     def react(self, on=2.5, relax=30):
         """
         causes dendrite to react. current flows for 'on' seconds and relaxes for 'off' seconds.
@@ -46,9 +45,7 @@ class Dendrite(object):
         return t - self.last >= delta
 
 
-
 class DendriteSwarm(object):
-
     def __init__(self, pins=[4, 4]):
         """
         dendrite swarm connected to digital ports. D4 and D4 are the defaults.
@@ -86,7 +83,6 @@ class DendriteSwarm(object):
             relay.off()
             i = i + 1
 
-
     def react(self, on=2.5, relax=30):
         """
         All dendrites react. On for 'on' seconds. Relax for 'relax' seconds.
@@ -105,7 +101,6 @@ class DendriteSwarm(object):
             for relay in self.relays:
                 relay.off()
 
-
     def ready(self, delta):
         """
         returns whether or not the dendrite has relaxed for long enough
@@ -119,10 +114,7 @@ class DendriteSwarm(object):
             return t - self.last >= delta
 
 
-
-
 if __name__ == "__main__":
-
     d1 = Dendrite(pin=4)
     d2 = Dendrite(pin=2)
     d1.react(on=2, relax=30)

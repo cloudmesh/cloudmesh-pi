@@ -5,7 +5,6 @@ import RPi.GPIO as GPIO
 
 
 class TemperatureSensor(object):
-
     def __init__(self, port=7):
         """
         connect to digital port. D7 is default
@@ -22,11 +21,12 @@ class TemperatureSensor(object):
             temp, hum = dht(self.dht_sensor_port, 0)
             return str(temp), str(hum)
         except (IOError, TypeError) as e:
-            print ("Error")
+            print("Error")
 
     def __str__(self):
-        t, h= temperature.get()
+        t, h = temperature.get()
         return "Temperature: {}, Humidity: {}".format(t, h)
+
 
 if __name__ == "__main__":
 
@@ -34,5 +34,4 @@ if __name__ == "__main__":
     while True:
         time.sleep(2)
         print(temperature.get())
-        print (temperature)
-
+        print(temperature)

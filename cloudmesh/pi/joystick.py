@@ -3,8 +3,8 @@ import time
 import datetime
 import grovepi
 
-class Joystick(object):
 
+class Joystick(object):
     # My Joystick
     #     Min  Typ  Max  Click
     #  X  268  497  755  1020-1023
@@ -15,7 +15,7 @@ class Joystick(object):
     # max x = 755
     # min x = 269
 
-    def __init__(self,calibrate=False):
+    def __init__(self, calibrate=False):
         """
         Connect the Joystick to an analog port. A0 is the default.
         """
@@ -46,76 +46,76 @@ class Joystick(object):
 
     def calibrate(self):
         config = self.read_calibrate()
-        print (config)
+        print(config)
         ntries = 10
         #
         # check the still position for x0, y0
         #
-        print ("...Calibrating... DO NOT touch the joystick...")
+        print("...Calibrating... DO NOT touch the joystick...")
         time.sleep(2)
         xsum = 0
         ysum = 0
-        for i in range(1,ntries+1):
-            (x,y) = self.get_raw()
+        for i in range(1, ntries + 1):
+            (x, y) = self.get_raw()
             xsum += x
             ysum += y
             time.sleep(0.2)
-        config["x0"] = int(xsum/10)
-        config["y0"] = int(ysum/10)
+        config["x0"] = int(xsum / 10)
+        config["y0"] = int(ysum / 10)
         time.sleep(3)
         #
         # check the left most position value
         # x_min
         #
-        print ("...Move the joystick to the LEFT most position and hold...")
+        print("...Move the joystick to the LEFT most position and hold...")
         time.sleep(2)
         xmin = 1024
-        for i in range(1,ntries+1):
-            (x,y) = self.get_raw()
+        for i in range(1, ntries + 1):
+            (x, y) = self.get_raw()
             if x < xmin:
                 xmin = x
             time.sleep(0.2)
         config["xmin"] = xmin
         time.sleep(3)
-        print ("Release...")
+        print("Release...")
         time.sleep(2)
         #
         # check the right most position value
         # x_max
         #
-        print ("...Move the joystick to the RIGHT most position and hold...")
+        print("...Move the joystick to the RIGHT most position and hold...")
         time.sleep(2)
         xmax = -1
-        for i in range(1,ntries+1):
-            (x,y) = self.get_raw()
+        for i in range(1, ntries + 1):
+            (x, y) = self.get_raw()
             if x > xmax:
                 xmax = x
             time.sleep(0.2)
         config["xmax"] = xmax
         time.sleep(3)
-        print ("Release...")
+        print("Release...")
         time.sleep(2)
         #
         # check the down most position value
         # y_min
         #
-        print ("...Move the joystick to the DOWN most position and hold...")
+        print("...Move the joystick to the DOWN most position and hold...")
         time.sleep(2)
         ymin = 1024
-        for i in range(1,ntries+1):
-            (x,y) = self.get_raw()
+        for i in range(1, ntries + 1):
+            (x, y) = self.get_raw()
             if y < ymin:
                 ymin = y
             time.sleep(0.2)
         config["ymin"] = ymin
         time.sleep(3)
-        print ("Release...")
+        print("Release...")
         time.sleep(2)
         #
         # check the up most position value
         # y_max
         #
-        print ("...Move the joystick to the UP most position and hold...")
+        print("...Move the joystick to the UP most position and hold...")
         time.sleep(2)
         ymax = -1
         for i in range(1, ntries + 1):
@@ -125,7 +125,7 @@ class Joystick(object):
             time.sleep(0.2)
         config["ymax"] = ymax
         time.sleep(3)
-        print ("Release...")
+        print("Release...")
         time.sleep(2)
         with open(os.path.expanduser(self.config_file), "w") as fh:
             for k in config.keys():
@@ -149,23 +149,23 @@ class Joystick(object):
             x = grovepi.analogRead(self.xPin)
             y = grovepi.analogRead(self.yPin)
         except IOError:
-            print ("IOError")
-        return (x,y)
+            print("IOError")
+        return (x, y)
 
     # x,y values normalized in the range of [-100, 100]
     def get_scaled(self):
-        (x,y,z) = self.get()
+        (x, y, z) = self.get()
         if x > 0:
-            x = x * 100/(self.max_x - self.x0)
+            x = x * 100 / (self.max_x - self.x0)
         else:
             if x < 0:
                 x = x * 100 / (self.x0 - self.min_x)
         if y > 0:
-            y = y * 100/(self.max_y - self.y0)
+            y = y * 100 / (self.max_y - self.y0)
         else:
             if y < 0:
-                y = y  * 100 / (self.y0 - self.min_y)
-        return (x,y,z)
+                y = y * 100 / (self.y0 - self.min_y)
+        return (x, y, z)
 
     def get(self):
         """
@@ -180,7 +180,7 @@ class Joystick(object):
             # Was a click detected on the X axis?
             click = 1 if x >= self.config["click"] else 0
 
-            #print("x =", x, " y =", y, " click =", click)
+            # print("x =", x, " y =", y, " click =", click)
             x = x - self.x0
             y = y - self.y0
 
@@ -195,7 +195,7 @@ class Joystick(object):
             return x, y, click
 
         except IOError:
-            print ("Error")
+            print("Error")
             x = 0
             y = 0
 
@@ -216,18 +216,17 @@ class Joystick(object):
             return x - self.min_x, y - self.min_y, click
 
         except IOError:
-            print ("Error")
+            print("Error")
             x = self.x0 - self.min_x
             y = self.y0 - self.min_y
-
 
 
 if __name__ == "__main__":
     # call with calibrate
     stick = Joystick(calibrate=True)
-    #print(stick.get_absolute())
+    # print(stick.get_absolute())
     print(stick.get_scaled())
     # assuming calibrate had been done
     stick = Joystick()
-    #print(stick.get_absolute())
+    # print(stick.get_absolute())
     print(stick.get_scaled())

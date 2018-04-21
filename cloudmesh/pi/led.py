@@ -12,9 +12,7 @@ import grovepi
 import sys
 
 
-
 class LED(object):
-
     def __init__(self, pin=3):
         """
         Connect the LED to a digital port. 3 is default.
@@ -48,24 +46,23 @@ class LED(object):
             try:
                 # LED on
                 self.on()
-                time.sleep(t) # duration on
+                time.sleep(t)  # duration on
                 # LED off
                 self.off()
-                time.sleep(t) #duration off
+                time.sleep(t)  # duration off
 
             except KeyboardInterrupt:  # Turn LED off before stopping
                 grovepi.digitalWrite(self.pin, 0)
                 sys.exit()
                 break
             except IOError:  # Print "Error" if communication error encountered
-                print ("Error")
-
+                print("Error")
 
 
 if __name__ == "__main__":
-#    arguments = docopt(__doc__)
-#    pin = arguments['PIN']
+    #    arguments = docopt(__doc__)
+    #    pin = arguments['PIN']
 
-#    led = LED(pin=pin)
+    #    led = LED(pin=pin)
     led = LED(pin=3)
     led.blink(5)

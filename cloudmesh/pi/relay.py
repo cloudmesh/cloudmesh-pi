@@ -3,9 +3,7 @@ import grovepi
 import sys
 
 
-
 class Relay(object):
-
     def __init__(self, pin=4):
         """
         connect relay to digital port. D4 is default.
@@ -48,9 +46,8 @@ class Relay(object):
         except IOError:
             print('Error')
 
-    
-if __name__=="__main__":
 
+if __name__ == "__main__":
     r1 = Relay()
     r2 = Relay(pin=2)
     r1.on()

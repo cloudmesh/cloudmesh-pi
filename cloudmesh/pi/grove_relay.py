@@ -1,33 +1,34 @@
 import grovepi
 import time
 
+
 class GroveRelay:
-	def __init__(self, pin = 3):
-		"""
+    def __init__(self, pin=3):
+        """
 		set the pin for relay
 		by default pin 3
 		"""
-		self.relay = pin
-		grovepi.pinMode(self.relay,"OUTPUT")
-		return
+        self.relay = pin
+        grovepi.pinMode(self.relay, "OUTPUT")
+        return
 
-	def on(self):
-		"""
+    def on(self):
+        """
 		turn on the relay allowing the current to flow through the connected device
 		"""
-		grovepi.digitalWrite(self.relay, 1)
-		return
+        grovepi.digitalWrite(self.relay, 1)
+        return
 
-	def off(self):
-		"""
+    def off(self):
+        """
 		tunrn off the relay preventing current from flowing to the connected device
 		"""
-		grovepi.digitalWrite(self.relay, 0)
-		return
+        grovepi.digitalWrite(self.relay, 0)
+        return
 
 
 if __name__ == "__main__":
-	relay = GroveRelay(4)
-	relay.on()
-	time.sleep(5)
-	relay.off()
+    relay = GroveRelay(4)
+    relay.on()
+    time.sleep(5)
+    relay.off()

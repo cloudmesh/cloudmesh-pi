@@ -4,12 +4,13 @@
 #
 
 
-import time,sys
+import time
+import sys
 import smbus
 import RPi.GPIO as GPIO
 
-class LCD(object):
 
+class LCD(object):
     def __init__(self):
         """
         connect the LCD screen to an I2C port
@@ -23,7 +24,7 @@ class LCD(object):
         self.DISPLAY_RGB_ADDR = 0x62
         self.DISPLAY_TEXT_ADDR = 0x3e
 
-    def setRGB(self, r,g,b):
+    def setRGB(self, r, g, b):
         """
         sets the backlight of the LCD to the given values
         :param r: Integer : red
@@ -32,12 +33,12 @@ class LCD(object):
         :return: None
         """
         # set backlight to (R,G,B) (values from 0..255 for each)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,0,0)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,1,0)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,0x08,0xaa)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,4,r)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,3,g)
-        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR,2,b)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 0, 0)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 1, 0)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 0x08, 0xaa)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 4, r)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 3, g)
+        self.bus.write_byte_data(self.DISPLAY_RGB_ADDR, 2, b)
 
     def textCommand(self, cmd):
         """
@@ -46,8 +47,7 @@ class LCD(object):
         :return: None
         """
         # send command to display (no need for external use)
-        self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR,0x80,cmd)
-
+        self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR, 0x80, cmd)
 
     def setText(self, text):
         """
@@ -56,10 +56,10 @@ class LCD(object):
         :return: None
         """
         # set display text \n for second line(or auto wrap)
-        self.textCommand(0x01) # clear display
+        self.textCommand(0x01)  # clear display
         time.sleep(.05)
-        self.textCommand(0x08 | 0x04) # display on, no cursor
-        self.textCommand(0x28) # 2 lines
+        self.textCommand(0x08 | 0x04)  # display on, no cursor
+        self.textCommand(0x28)  # 2 lines
         time.sleep(.05)
         count = 0
         row = 0
@@ -73,20 +73,20 @@ class LCD(object):
                 if c == '\n':
                     continue
             count += 1
-            self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR,0x40,ord(c))
+            self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR, 0x40, ord(c))
 
-    #Update the display without erasing the display
+    # Update the display without erasing the display
     def setText_norefresh(self, text):
         """
         sets new text without erasing previous display
         :param text: String
         :return: None
         """
-        self.textCommand(0x02) # return home
+        self.textCommand(0x02)  # return home
         time.sleep(.05)
 
-        self.textCommand(0x08 | 0x04) # display on, no cursor
-        self.textCommand(0x28) # 2 lines
+        self.textCommand(0x08 | 0x04)  # display on, no cursor
+        self.textCommand(0x28)  # 2 lines
         time.sleep(.05)
         count = 0
         row = 0
@@ -100,8 +100,7 @@ class LCD(object):
                 if c == '\n':
                     continue
             count += 1
-            self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR,0x40,ord(c))
-
+            self.bus.write_byte_data(self.DISPLAY_TEXT_ADDR, 0x40, ord(c))
 
     def put(self, message):
         """
@@ -114,26 +113,28 @@ class LCD(object):
     def countdown(self, message, seconds):
         """
         sets the text on the display and updates it every second
-        :param message: String
+
+        :param message: The message to be rinted
+        :param seconds: The number of seconds between message prints
         :return: None
         """
+        """
+        """
         for t in range(seconds, 0, -1):
-            msg = message + "({seconds} sec).".format(seconds)
+            msg = message + "({seconds} sec).".format(seconds=seconds)
             self.setText(message)
-        
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     lcd = LCD()
     lcd.setText("Hello world\nCloudmesh.pi")
-    lcd.setRGB(0,128,64)
-    for c in range(0,255):
-        lcd.setRGB(c,255-c,0)
+    lcd.setRGB(0, 128, 64)
+    for c in range(0, 255):
+        lcd.setRGB(c, 255 - c, 0)
         time.sleep(0.01)
-    lcd.setRGB(0,255,0)
+    lcd.setRGB(0, 255, 0)
     lcd.setText("Bye bye, this should wrap onto next line")
     time.sleep(0.5)
     lcd.put("Hallo")
 
-    lcd.countdown("Program ends in", 5) 
-    
-    
+    lcd.countdown("Program ends in", 5)
