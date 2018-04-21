@@ -17,7 +17,7 @@ class GroveAirQualitySensor:
         returns the air quality value
 
         :return: the analog value of air quality received.
-		         a smaller value means fresher air
+                 a smaller value means fresher air
         """
         value = grovepi.analogRead(self.air_sensor)
         return value

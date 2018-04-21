@@ -38,7 +38,7 @@ class Grove4DigitDisplay(object):
     def setScore(self, left_score=0, right_score=0):
         """
         display score , i.e two 2 digit values separated by :
-		by default display 00:00
+        by default display 00:00
 
         :param left_score:
         :param right_score:
@@ -48,21 +48,21 @@ class Grove4DigitDisplay(object):
 
     def monitorAnalog(self, pin=0, seconds=0):
         """
-		monitor and display the value of an analog pin for some number of seconds
-		by default monitor analog pin 0 for 0 seconds
-		"""
+        monitor and display the value of an analog pin for some number of seconds
+        by default monitor analog pin 0 for 0 seconds
+        """
         grovepi.fourDigit_monitor(self.display, pin, seconds)
 
     def allOn(self):
         """
-		switch all lights on
-		"""
+        switch all lights on
+        """
         grovepi.fourDigit_on(self.display)
 
     def allOff(self):
         """
-		switch all lights off
-		"""
+        switch all lights off
+        """
         grovepi.fourDigit_off(self.display)
 
 

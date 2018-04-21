@@ -5,16 +5,16 @@ import grovepi
 class GroveUVSensor:
     def __init__(self, pin=0):
         """
-		use analog pin A0  for the input by default
-		connect to port A0 of grovepi hat
-		"""
+        use analog pin A0  for the input by default
+        connect to port A0 of grovepi hat
+        """
         self.uv_sensor = pin
         grovepi.pinMode(self.uv_sensor, "INPUT")
 
     def getUVIndex(self):
         """
-		calculate an estimate value of the uv index as per grove seed website
-		"""
+        calculate an estimate value of the uv index as per grove seed website
+        """
         val = grovepi.analogRead(self.uv_sensor)
         illumination_intensity = val * 307
         uv_index = illumination_intensity / float(200)

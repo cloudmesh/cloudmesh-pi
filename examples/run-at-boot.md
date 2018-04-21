@@ -38,7 +38,7 @@ Example:
 
 Example:
 
-	@reboot python /home/pi/desktop/test.py > /home/pi/log.txt
+    @reboot python /home/pi/desktop/test.py > /home/pi/log.txt
 
 * Now, the output of the program wil be stored in log.txt file
 * Save the file and exit the editor.

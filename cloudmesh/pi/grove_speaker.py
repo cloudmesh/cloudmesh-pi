@@ -6,10 +6,10 @@ import sys
 class GroveSpeaker:
     def __init__(self, pin=3):
         """
-		use digital pin as output pin for speaker
-		pin 3 by default
-		connect to port D3 of grove pi hat
-		"""
+        use digital pin as output pin for speaker
+        pin 3 by default
+        connect to port D3 of grove pi hat
+        """
         self.speaker = 3
         self.high = 0
         self.low = 0
@@ -18,15 +18,15 @@ class GroveSpeaker:
 
     def setFreq(self, freq=0, seconds=0):
         """
-		Generate a wave with the frequency freq (Hz) for specified number of seconds approximately
-		by default 0 Hz for 0 seconds
+        Generate a wave with the frequency freq (Hz) for specified number of seconds approximately
+        by default 0 Hz for 0 seconds
 
-		for freq time for each wavelength = 1/freq
-		time for half a wave = wait_time = 1/(2*freq)
+        for freq time for each wavelength = 1/freq
+        time for half a wave = wait_time = 1/(2*freq)
 
-		number of wavelengths in specified seconds = loop
-		loop = seconds * freq
-		"""
+        number of wavelengths in specified seconds = loop
+        loop = seconds * freq
+        """
         wait_time = 1 / (2 * float(freq))
         loop = int(seconds * freq)
 
@@ -38,26 +38,26 @@ class GroveSpeaker:
 
     def setVolumeHigh(self):
         """
-		When high = 1, low = 0 , more voltage to the speaker, therefore more volume
-		"""
+        When high = 1, low = 0 , more voltage to the speaker, therefore more volume
+        """
         self.high = 1
 
     def setVolumeLow(self):
         """
-		when high = 0 and low = 0, very little voltage goes to the speaker and therefore low  volume
-		"""
+        when high = 0 and low = 0, very little voltage goes to the speaker and therefore low  volume
+        """
         self.high = 0
 
     def speakerOff(self):
         """
-		to avoid some noise voltage to speaker leading to some noise in the speaker set voltage to -1
-		"""
+        to avoid some noise voltage to speaker leading to some noise in the speaker set voltage to -1
+        """
         grovepi.digitalWrite(self.speaker, -1)
 
     def speakerOn(self):
         """
-		to activate the speaker or allow some noise set voltage to 0
-		"""
+        to activate the speaker or allow some noise set voltage to 0
+        """
         grovepi.digitalWrite(self.speaker, 0)
 
 

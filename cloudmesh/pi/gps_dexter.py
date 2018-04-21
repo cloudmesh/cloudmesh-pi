@@ -44,12 +44,12 @@ class GROVEGPS():
 
     def clean_data(self):
         '''
-		clean_data: 
-		ensures that all relevant GPS data is set to either empty string
-		or -1.0, or -1, depending on appropriate type
-		This occurs right after initialisation or
-		after 50 attemps to reach GPS
-		'''
+        clean_data:
+        ensures that all relevant GPS data is set to either empty string
+        or -1.0, or -1, depending on appropriate type
+        This occurs right after initialisation or
+        after 50 attemps to reach GPS
+        '''
         self.timestamp = ""
         self.lat = -1.0  # degrees minutes and decimals of minute
         self.NS = ""
@@ -65,10 +65,10 @@ class GROVEGPS():
 
     def get_date(self):
         '''
-		attempt to get date from GPS data. So far no luck. GPS does
-		not seem to send date sentence at all
-		function is unfinished
-		'''
+        attempt to get date from GPS data. So far no luck. GPS does
+        not seem to send date sentence at all
+        function is unfinished
+        '''
         valid = False
         for i in range(50):
             time.sleep(0.5)
@@ -80,10 +80,10 @@ class GROVEGPS():
 
     def read(self):
         '''
-		Attempts 50 times at most to get valid data from GPS
-		Returns as soon as valid data is found
-		If valid data is not found, then clean up data in GPS instance
-		'''
+        Attempts 50 times at most to get valid data from GPS
+        Returns as soon as valid data is found
+        If valid data is not found, then clean up data in GPS instance
+        '''
         valid = False
         for i in range(50):
             time.sleep(0.5)
@@ -100,11 +100,11 @@ class GROVEGPS():
 
     def validate(self, in_line):
         '''
-		Runs regex validation on a GPGAA sentence. 
-		Returns False if the sentence is mangled
-		Return True if everything is all right and sets internal
-		class members.
-		'''
+        Runs regex validation on a GPGAA sentence.
+        Returns False if the sentence is mangled
+        Return True if everything is all right and sets internal
+        class members.
+        '''
         if in_line == "":
             return False
         if in_line[:6] != "$GPGGA":
