@@ -1,16 +1,20 @@
-# read analog value on turbidity sensor
-# display the reading on lcd screen
-# display a level on the ledbar
-
-# high reading means less turbidity ahd hence is good
+######################################################################
+# Read the analog value on turbidity sensor
+# Display the reading on lcd screen
+# Display a level on the ledbar
+#
+# High reading means less turbidity and hence is good
+#
+# Connect lcd to i2c port
+# Connect turbidity sensor to analog port A0
+# Connect ledbar to digital port D3
+#
+######################################################################
 
 from cloudmesh.pi import LedBar
 from cloudmesh.pi import LCD
 from cloudmesh.pi import TurbiditySensorAnalog
 import time
-#connect lcd to i2c port
-#connect turbidity sensor to analog port A0
-#connect ledbar to digital port D3
 
 lcd = LCD()
 lcd.setRGB(0,128,0)
