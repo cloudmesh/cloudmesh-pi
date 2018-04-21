@@ -11,12 +11,12 @@ import time
 # lcd set up
 ######################################################################
 lcd = LCD()
-lcd.setRGB(255,255,255)
+lcd.setRGB(255, 255, 255)
 
 ######################################################################
-#joystick x + y ranges
-#x = -242 to 268
-#y = -249 to 241
+# joystick x + y ranges
+# x = -242 to 268
+# y = -249 to 241
 ######################################################################
 
 ######################################################################
@@ -25,17 +25,17 @@ lcd.setRGB(255,255,255)
 left = 0
 right = 4
 middle = 8
-min = 480
-max = 750
-mid = (max - min) / 2 + min
+minimum = 480
+maximum = 750
+mid = (maximum - minimum) / 2 + minimum
 joytoggle = False
 click = 0
 
-print "hola"
+print("Starting ...")
 joy = Joystick()
 pwm = Adafruit_PCA9685.PCA9685()
 pwm.set_pwm_freq(100)
-print "Plug motor power in now."
+print("Plug motor power in now.")
 lcd.setText("Plug motor power in now (10 sec).")
 time.sleep(1)
 lcd.setText("Plug motor power in now (9 sec).")
@@ -72,25 +72,25 @@ time.sleep(1)
 ######################################################################
 
 while True:
-	value = joy.get()
-	x = value[0]
-	y = value[1]
-	lastclick = click
-	click = value[2]
-	if click == 1:
-		x = x -519
-	print "The x,y,click values are ", x,y,click
-	if(click != lastclick and click == 0):
-		joytoggle = not joytoggle 
-	print "Joytoggle is ", joytoggle
-	if(joytoggle):
-		speed = mid
-	else:
-		speed = min + x
-	diff = y - 124
-	print "The speed,diff values are ", speed,diff, "(" ,speed + diff,",",speed,",",speed - diff,")"
-	#lcd.setText("(" + str(speed + diff) + "," + str(speed) + "," + str(speed - diff)+")")
-	pwm.set_pwm(middle,0,speed)
-	pwm.set_pwm(left,0,speed + diff)
-	pwm.set_pwm(right,0,speed - diff)
-	time.sleep(.2)
+    value = joy.get()
+    x = value[0]
+    y = value[1]
+    lastclick = click
+    click = value[2]
+    if click == 1:
+        x = x - 519
+    print("The x,y,click values are ", x, y, click)
+    if click != lastclick and click == 0:
+        joytoggle = not joytoggle
+    print("Joytoggle is ", joytoggle)
+    if joytoggle:
+        speed = mid
+    else:
+        speed = minimum + x
+    diff = y - 124
+    print("The speed,diff values are ", speed, diff, "(", speed + diff, ",", speed, ",", speed - diff, ")")
+    # lcd.setText("(" + str(speed + diff) + "," + str(speed) + "," + str(speed - diff)+")")
+    pwm.set_pwm(middle, 0, speed)
+    pwm.set_pwm(left, 0, speed + diff)
+    pwm.set_pwm(right, 0, speed - diff)
+    time.sleep(.2)

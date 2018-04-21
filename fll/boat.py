@@ -11,6 +11,8 @@ x_max = 0
 y_min = 0
 y_max = 0
 
+# TODO: THID PRG IS JUST A NOTE DOES NOT WORK
+
 lcd.setText("move x joystick to the left")
 lcd.setText("move x joystick to the right")
 lcd.setText("move y joystick to the up")
@@ -24,15 +26,15 @@ def convert100(value, minv, maxv):
 
 
 def step100(value):
-    if (value <= 10):
+    if value <= 10:
         return 0
-    if (value < 20):
+    if value < 20:
         return 20
-    if (value < 40):
+    if value < 40:
         return 40
-    if (value < 60):
+    if value < 60:
         return 60
-    if (value < 80):
+    if value < 80:
         return 80
     return 100
 
@@ -98,20 +100,21 @@ while True:
     y = value[1]
     lastclick = click
     click = value[2]
-    if (click == 1):
+    if click == 1:
         x = x - 519
     stepx = convert(x, -241, 266)
     stepy = convert(y, -247, 240)
     print("The corrected stepx,stepy,click values are ", stepx, stepy, click)
-    if (click != lastclick and click == 0):
+    if click != lastclick and click == 0:
         joytoggle = not joytoggle
-        if (joytoggle):
+        if joytoggle:
             stoptime = time.time() + motortimeout
+    # TODO: define stoptime
     if joytoggle and stoptime < time.time():
         joytoggle = False
         print("Joytoggle timeout.")
     print("Joytoggle is ", joytoggle)
-    if (joytoggle):
+    if joytoggle:
         speed = motormid
     else:
         speed = motormin + (motordelta / 100) * (stepx - 60)
