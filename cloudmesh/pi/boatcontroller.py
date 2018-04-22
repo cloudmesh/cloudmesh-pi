@@ -7,7 +7,7 @@ from cloudmesh.pi import Joystick
 
 def main():
     MQTT_SERVER = "localhost"
-    MQTT_PATH = "boatcontrol"
+    MQTT_PATH = "cloudmesh/motor"
 
     stick = Joystick()
     prevxy = [0, 0]

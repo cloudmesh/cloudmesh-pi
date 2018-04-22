@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "10.0.1.13"
-MQTT_PATH = "boatcontrol"
+MQTT_PATH = "cloudmesh/motor"
 
 
 # The callback for when the client receives a CONNACK response from the server.

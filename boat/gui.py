@@ -1,4 +1,5 @@
-from guizero import App, Slider
+from guizero import App
+from guizero import Slider
 from guizero import PushButton
 
 left = 50
