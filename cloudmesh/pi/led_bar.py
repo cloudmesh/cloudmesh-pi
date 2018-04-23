@@ -13,33 +13,27 @@ class LedBar(object):
         grovepi.ledBar_init(self.ledbar, color)
 
 
-def setLevel(self, level=0):
-    """
-    level = 1-10
-    level - 5 turns on LEDs 1 to 5
-    """
+    def setLevel(self, level=0):
+        """
+        level = 1-10
+        level - 5 turns on LEDs 1 to 5
+        """
+        grovepi.ledBar_setLevel(self.ledbar, level)
 
 
-grovepi.ledBar_setLevel(self.ledbar, level)
+    def setLED(self, led=1, status=0):
+        """
+        led= number of led to set: 1- 10
+        status 1= on, 0 = off
+        """
+        grovepi.ledBar_setLed(self.ledbar, led, status)
 
 
-def setLED(self, led=1, status=0):
-    """
-    led= number of led to set: 1- 10
-    status 1= on, 0 = off
-    """
-
-
-grovepi.ledBar_setLed(self.ledbar, led, status)
-
-
-def toggleLED(self, led=0):
-    """
-    Inverts the status of the led
-    """
-
-
-grovepi.ledBar_toggleLed(self.ledbar, led)
+    def toggleLED(self, led=0):
+        """
+        Inverts the status of the led
+        """
+        grovepi.ledBar_toggleLed(self.ledbar, led)
 
 if __name__ == '__main__':
     ledbar = LedBar()
