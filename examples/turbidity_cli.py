@@ -1,6 +1,7 @@
+
 ######################################################################
 # This program reads analog turbidity sensor values and
-# displays it on the lcd screen
+# displays it on the terminal
 #
 # Connect the turbidity sensor to port A0 of the grovepi
 # Connect LCD to an I2C port of grovepi
