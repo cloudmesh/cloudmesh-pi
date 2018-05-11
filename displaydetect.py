@@ -82,23 +82,3 @@ if reboot:
     with open("/boot/config.txt", "w") as fh:
         fh.write(content)
     os.system("reboot")
-
-    content=template.format(x=1920,y=1080,display_rotate=0)
-    reboot = "1920" not in spec_old
-elif "1024" in edidspec:
-    content=template.format(x=1024,y=600,display_rotate=0)
-    reboot = "1024" not in spec_old
-elif "800" in edidspec:
-    template=template.format(x=480,y=800,display_rotate=3)
-    reboot = "800" not in spec_old
-else:
-    pass
-
-#print (content)
-#print (spec_old)
-#print (reboot)
-
-if reboot:
-    with open("/boot/config.txt", "w") as fh:
-        fh.write(content)
-    os.system("reboot")
