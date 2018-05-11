@@ -13,32 +13,6 @@ Add this to end of /etc/rc.local before the "exit 0" line:
 '''
 
 #!/usr/bin/python
-
-import os, sys
-import subprocess
-
-displayconfig = "/boot/config.txt"
-
-spec_old = subprocess.check_output(["egrep", "hdmi_cvt", displayconfig]).strip()
-
-edidwritecmd = "/usr/bin/tvservice -d /boot/edid.dat > /dev/null 2>&1"
-edidparsecmd = "/usr/bin/edidparser /boot/edid.dat > /boot/edid.txt"
-os.system(edidwritecmd)
-os.system(edidparsecmd)
-displayconfigin = "/boot/config.txt.in"
-f_edidspec = "/boot/edid.txt"
-
-edidspec = ""
-with open(f_edidspec) as fh:
-    edidspec = fh.read()
-
-reboot = False
-template = ""
-content = ""
-with open(displayconfigin) as fh:
-    template = fh.read()
-if "1920" in edidspec:#!/usr/bin/python
-
 import os, sys
 import subprocess
 
