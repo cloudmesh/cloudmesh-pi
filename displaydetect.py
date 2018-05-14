@@ -13,6 +13,7 @@ Add this to end of /etc/rc.local before the "exit 0" line:
 '''
 
 #!/usr/bin/python
+
 import os, sys
 import subprocess
 
@@ -35,8 +36,15 @@ reboot = False
 template = ""
 content = ""
 with open(displayconfigin) as fh:
-    tem/usr/bin/python /bin/displaydetect.pyplate = fh.read()
-if "1920" in edidspec:
+    template = fh.read()
+
+if "HP_w2408" in edidspec:
+    content=template.format(x=1920,y=1200,display_rotate=0)
+    reboot = ("1920" not in spec_old) or ("1200" not in spec_old)
+elif "ELDFT501J" in edidspec:
+    content=template.format(x=1920,y=1080,display_rotate=0)
+    reboot = ("1920" not in spec_old) or ("1080" not in spec_old)
+elif "1920" in edidspec:
     content=template.format(x=1920,y=1080,display_rotate=0)
     reboot = "1920" not in spec_old
 elif "1024" in edidspec:
@@ -56,3 +64,4 @@ if reboot:
     with open("/boot/config.txt", "w") as fh:
         fh.write(content)
     os.system("reboot")
+
