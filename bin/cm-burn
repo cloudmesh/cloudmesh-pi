@@ -89,9 +89,9 @@ def rm(image):
 @print_function_name
 def ls():
     script = """
-    ls  {dir}
+    ls  -1 {dir}
     """.format(dir=IMAGE_DIR)
-
+    execute(script)
 
 
 
