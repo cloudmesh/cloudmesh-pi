@@ -6,8 +6,7 @@ Usage:
   cm-burn create --names HOSTS [--key KEY] --image IMAGE
   cm-burn ls
   cm-burn rm IMAGE
-  cm-burn get URL
-  cm-burn get jessie
+  cm-burn get [URL]
 
   cm-burn (-h | --help)
   cm-burn --version
@@ -73,11 +72,13 @@ def execute(commands):
 @print_function_name
 def get(image):
     print(image)
-    # mkdir IMAGE_DIR # ignore if exists
-    # cd IMAGE_DIR; wget https://downloads.raspberrypi.org/raspbian_latest
+    # if image_dir does not exists
+    #    mkdir IMAGE_DIR
+    if image is None:
+        image = "https://downloads.raspberrypi.org/raspbian_latest"
     script = """
-    ls  {dir}
-    """.format(dir=IMAGE_DIR)
+    cd {dir}; wget {image}
+    """.format(dir=IMAGE_DIR, image=image)
     execute(script)
 
 
