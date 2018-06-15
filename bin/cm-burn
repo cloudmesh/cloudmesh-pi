@@ -3,7 +3,11 @@
 """Cloudmesh Raspberry Pi Mass Image Burner.
 
 Usage:
-  cm-burn
+  cm-burn create --names HOSTS [--key KEY] --image IMAGE
+  cm-burn ls
+  cm-burn rm IMAGE
+  cm-burn get URL
+  cm-burn get jessie
 
   cm-burn (-h | --help)
   cm-burn --version
@@ -19,49 +23,35 @@ Files:
 
 Description:
 
-  generate SERVICES...
-    generates the service stubs while using the example as template
-    replaces the "example" with SERVICE where needed
+  cm-burn create --names HOSTS [--key KEY] --image IMAGE
 
-  create SERVICES... --target=SERVICE
-    creates all the REST SERVICE
+  cm-burn ls
+        lists the downloaded images
 
-  pack docker SERVICES... --target=SERVICE
-    creates all the REST SERVICES in a docker container
+  cm-burn rm IMAGE
+        burn the image that is downloaded
 
-  rm SERVICES...
-    deletes the source of the services. This function must be
-    executed with care
+  cm-burn get URL
+        downloads the image at the given URL
 
-  run SERVICES...
-    runs the service
+  cm-burn get jessie
+        abbreviation to download a specific version of an image.
+        Identify what woudl be useful.
 
-  kill SERVICES...
-    kills the service
-
-  ps [SERVICES...]
-    lists all running services
-
-  info SERVICES..
-     provides information about the services
 
 """
 
-''' manual page draft
-
-have some kind of git script similar to
-
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-
-'''
-
 from docopt import docopt
 import os
+import hostlist
+
 
 VERSION = "0.1"
+debug = True
 
 columns, lines = os.get_terminal_size()
 
+IMAGE_DIR=os.path.expanduser("~/.cloudmesh/images")
 
 def print_function_name(func):
     def echo_func(*func_args, **func_kwargs):
@@ -83,36 +73,50 @@ def execute(commands):
 @print_function_name
 def get(image):
     print(image)
+    # mkdir IMAGE_DIR # ignore if exists
+    # cd IMAGE_DIR; wget https://downloads.raspberrypi.org/raspbian_latest
     script = """
-    ls 
-    """
+    ls  {dir}
+    """.format(dir=IMAGE_DIR)
     execute(script)
 
 
+@print_function_name
+def rm(image):
+    print(image)
 
 @print_function_name
-def rm(services):
-    print(services)
+def ls():
+    script = """
+    ls  {dir}
+    """.format(dir=IMAGE_DIR)
+
+
 
 
 @print_function_name
 def create(names, key):
-    print(names, keys)
+    hosts = hostlist.expand_hostlist(names)
+    print(hosts, key)
+
 
 
 def analyse():
     if arguments["rm"]:
-        generate(arguments["IMAGE"])
+        rm(arguments["IMAGE"])
     elif arguments["get"]:
         get(arguments["URL"])
-    elif arguments["names"]:
-        rm(arguments["NAMES"])
+    elif arguments["ls"]:
+        ls()
+    elif arguments["rm"]:
+        rm(arguments["IMAGE"])
     elif arguments["create"]:
-        create(arguments["names"], arguments["KEY"])
+        create(arguments["HOSTS"], arguments["KEY"])
 
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version=VERSION)
-    print(arguments)
+    if debug:
+        print(arguments) # just for debugging
 
     analyse()
