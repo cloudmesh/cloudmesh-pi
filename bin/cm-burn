@@ -28,7 +28,7 @@ Description:
         lists the downloaded images
 
   cm-burn rm IMAGE
-        burn the image that is downloaded
+        remove the image
 
   cm-burn get URL
         downloads the image at the given URL
@@ -45,10 +45,16 @@ from docopt import docopt
 import os
 import hostlist
 from prompter import yesno
-
+import platform
 
 VERSION = "0.1"
 debug = True
+
+# if "ubuntu" not in platform.platform().lower():
+#     print("At thi stime only ubuntu is supported")
+
+# Could we not run thi son a pi instead?
+
 
 columns, lines = os.get_terminal_size()
 
