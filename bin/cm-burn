@@ -37,12 +37,14 @@ Description:
         abbreviation to download a specific version of an image.
         Identify what woudl be useful.
 
-
+Example:
+  cm-burn create --names red[000-010] --key idrsa.pub --image rasbian_latest
 """
 
 from docopt import docopt
 import os
 import hostlist
+from prompter import yesno
 
 
 VERSION = "0.1"
@@ -99,6 +101,20 @@ def ls():
 def create(names, key):
     hosts = hostlist.expand_hostlist(names)
     print(hosts, key)
+    for host in hosts:
+        print(columns * '-')
+        print ("Burning", host)
+        print(columns * '-')
+        yesno('Please insert the card for ' + host + "(y)?")
+
+        print("wait till its recognized")
+        print("onec in conformation proceed")
+        print("burn")
+        print("Please remove the card for host", host)
+        yesno("Press y once the card is removed")
+
+        print("take the card out")
+
 
 
 
