@@ -3,7 +3,7 @@
 """Cloudmesh OpenAPI Code Generator.
 
 Usage:
-  cm-openapi update
+  cm-burn update
   cm-openapi generate SERVICES...
   cm-openapi create SERVICES... --target=SERVICE
   cm-openapi rm SERVICES...
