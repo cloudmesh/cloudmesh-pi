@@ -1,0 +1,161 @@
+#! /usr/bin/env python
+
+"""Cloudmesh OpenAPI Code Generator.
+
+Usage:
+  cm-openapi update
+  cm-openapi generate SERVICES...
+  cm-openapi create SERVICES... --target=SERVICE
+  cm-openapi rm SERVICES...
+  cm-openapi run SERVICES...
+  cm-openapi kill SERVICES...
+  cm-openapi ps [SERVICES...]
+  cm-openapi info SERVICES...
+  cm-openapi pack docker SERVICES...
+
+  cm-openapi (-h | --help)
+  cm-openapi --version
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+
+Files:
+  This is not fully thought through
+  ~/.cloudmesh/bin/cm-openapi
+    location of the executable
+  ~/.cloudmesh/lib/cm-openapi
+    location of the samples
+
+Description:
+
+  generate SERVICES...
+    generates the service stubs while using the example as template
+    replaces the "example" with SERVICE where needed
+
+  create SERVICES... --target=SERVICE
+    creates all the REST SERVICE
+
+  pack docker SERVICES... --target=SERVICE
+    creates all the REST SERVICES in a docker container
+
+  rm SERVICES... 
+    deletes the source of the services. This function must be 
+    executed with care
+
+  run SERVICES...
+    runs the service
+
+  kill SERVICES...
+    kills the service
+
+  ps [SERVICES...]
+    lists all running services
+
+  info SERVICES..
+     provides information about the services
+
+"""
+
+''' manual page draft
+
+have some kind of git script similar to
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+'''
+
+from docopt import docopt
+import os
+
+VERSION="0.1"
+
+columns, lines = os.get_terminal_size()
+
+
+def print_function_name(func):
+    def echo_func(*func_args, **func_kwargs):
+        print('')
+        print (columns * '-')
+        print('Executing {}'.format(func.__name__))
+        print (columns * '-')
+        return func(*func_args, **func_kwargs)
+    return echo_func
+
+class Swagger(object):
+
+      def __init__():
+          self.CLOUDMESH="~/.cloudmesh/openapi/bin/"
+          self.SWAGGERCODEGEN=\
+            "java -jar {CLOUDMESH}/bin/swagger-codegen-cli-2.3.1.jar".format(CLOUDMESH=self.CLOUDMESH)
+
+def execute (commands):
+    lines = commands.split("\n")
+    for line in lines:
+        os.system(line)
+
+@print_function_name
+def generate(services):
+    print ("generate")
+    print (services)
+    script = """
+    ls 
+    """
+    execute(script)
+
+@print_function_name
+def kill(services):
+    print (services)
+
+@print_function_name
+def run(services):
+    print (services)
+
+@print_function_name
+def rm(services):
+    print (services)
+
+@print_function_name
+def create(services):
+    print (services)
+
+@print_function_name
+def pack(services):
+    print (services)
+
+@print_function_name
+def ps(services):
+    if len(services) == 0:
+       services = None
+    print ("ps")
+    print (services)
+
+@print_function_name
+def info(services):
+    print (services)
+
+def analyse():
+    
+    if arguments["generate"]:
+       generate(arguments["SERVICES"])
+    elif arguments["kill"]:
+       kill(arguments["SERVICES"])
+    elif arguments["run"]:
+       run(arguments["SERVICES"])
+    elif arguments["rm"]:
+       rm(arguments["SERVICES"])
+    elif arguments["create"]:
+       create(arguments["SERVICES"])
+    elif arguments["info"]:
+       info(arguments["SERVICES"])
+    elif arguments["pack"]:
+       pack(arguments["SERVICES"])
+    elif arguments["ps"]:
+       ps(arguments["SERVICES"])
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version=VERSION)
+    print(arguments)
+
+    analyse()
