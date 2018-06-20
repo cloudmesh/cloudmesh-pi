@@ -101,7 +101,34 @@ def ls():
     """.format(dir=IMAGE_DIR)
     execute(script)
 
+class burn (object):
 
+	def __init__ (self):
+		pass
+
+	def image(self, imagepath):
+		# set the image
+		pass
+
+	def device(self, devicename):
+		# set the device
+        pass
+
+	def burn(self):
+		# burn image on device
+        pass
+
+	def hostname(self, name):
+		# set the hostname
+        pass
+
+	def key(self, keypath):
+		# set the keypath
+        pass
+
+	def ip(self, ipaddress):
+		# set ip
+        pass
 
 @print_function_name
 def create(names, key):
@@ -120,6 +147,7 @@ def create(names, key):
         yesno("Press y once the card is removed")
 
         print("take the card out")
+
 
 
 
